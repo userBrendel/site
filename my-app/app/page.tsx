@@ -29,7 +29,7 @@ export default function Home() {
             Left Side
           </div>
 
-          <div className="p-4 flex flex-col items-center gap-4 " style={{ backgroundImage: "url('Home.png')" }}>
+          <div className="h-full p-4 flex flex-col items-center gap-4 " style={{ backgroundImage: "url('Home.png')" }}>
             <h1 className="text-3xl font-light leading-tight tracking-[0.15em]">
               A sweet aroma, a reflection of His love
             </h1>
