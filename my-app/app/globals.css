@@ -53,4 +53,6 @@ p {
   /* Prevent text from wrapping */
 }
 
-*{border: 1px solid red;}
+/* * {
+  border: 1px solid red;
+} */
