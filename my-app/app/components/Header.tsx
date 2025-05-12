@@ -23,17 +23,29 @@ const Header = () => {
   return (
     <header className="px-1 py-10 relative z-40">
       {/* Top Navigation Bar */}
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="w-full px-4 mx-auto flex justify-between items-center">
         {/* Left: Menu Button */}
-        <button
+        
+        <div className="flex items-center space-x-6 text-black">
+          <button
           onClick={() => setIsOpen(true)}
           className="text-black flex items-center"
         >
           <Menu size={28} />
         </button>
+          <Link href="/account" className="invisible">
+            <User size={24} />
+          </Link>
+          <Link href="/wishlist" className="invisible">
+            <Heart size={24} />
+          </Link>
+          <Link href="/cart" className="invisible">
+            <ShoppingBag size={24} />
+          </Link>
+        </div>
 
         {/* Center: Logo */}
-        <Link href="/" className="flex items-center ml-25">
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Ecommerce Logo"

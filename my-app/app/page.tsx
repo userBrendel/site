@@ -23,17 +23,18 @@ export default function Home() {
           <Header />
         </div>
 
-        <div className="absolute inset-0 grid grid-cols-2 gap-8 place-items-center text-center text-black ">
-          <div className="p-4">
-            {/* Left Side Content */}
-            Left Side
+        <div className="absolute inset-0 grid grid-cols-2 gap-8 place-items-center text-center text-black" style={{ backgroundImage: "url('home2.png')" }}>
+          <div className="mt-10 h-full p-20 flex flex-col items-center gap-4 justify-center">
+          <h1 className="text-2xl font-light leading-tight tracking-[0.1em]">In the beginning, when the world was void and formless, a whisper of creation filled the air—Let There Be Fragrance.</h1>
+          
+          <Image src="/perfume.png" alt="perfume bottle" priority width={250} height={250}/>
           </div>
 
-          <div className="h-full p-4 flex flex-col items-center gap-4 " style={{ backgroundImage: "url('Home.png')" }}>
-            <h1 className="text-3xl font-light leading-tight tracking-[0.15em]">
+          <div className="h-full p-20 flex flex-col items-center gap-4 justify-end" style={{ backgroundImage: "url('Home.png')" }}>
+            <h1 className="text-3xl font-light leading-tight tracking-[0.1em]">
               A sweet aroma, a reflection of His love
             </h1>
-            <p>A sweet aroma, a reflection of His love</p>
+            <p className="font-xl">A sweet aroma, a reflection of His love</p>
             <ShopNowButton />
           </div>
         </div>
