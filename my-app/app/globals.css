@@ -17,6 +17,10 @@ h2 {
   font-family: "Luxurious Roman", sans-serif;
 }
 
+p {
+  font-family: "Quicksand", sans-serif;
+}
+
 /* Optional: nice scrollbars */
 ::-webkit-scrollbar {
   width: 8px;

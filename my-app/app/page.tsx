@@ -23,11 +23,18 @@ export default function Home() {
           <Header />
         </div>
 
-        <div className="absolute top-2/3 left-30 transform -translate-x-1/2 -translate-y-1/2 z-1 text-center text-black w-full max-w-7xl px-4 mx-auto py-16 ">
-          <h1 className="text-3xl font-light mb-6 leading-tight tracking-[0.15em]">
-            A sweet aroma, a reflection of His love <br /> - A sweet aroma
-          </h1>
-          <ShopNowButton />
+        <div className="absolute inset-0 grid grid-cols-2 gap-8 place-items-center text-center text-black px-4">
+          <div className="p-4">
+            {/* Left Side Content */}
+            Left Side
+          </div>
+          <div className="p-4 flex flex-col items-center gap-4">
+            <h1 className="text-3xl font-light leading-tight tracking-[0.15em]">
+              A sweet aroma, a reflection of His love
+            </h1>
+            <p>A sweet aroma, a reflection of His love</p>
+            <ShopNowButton />
+          </div>
         </div>
       </div>
 

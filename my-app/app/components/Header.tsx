@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Menu,
   X,
@@ -11,7 +11,7 @@ import {
   ShoppingBag,
   User,
   ChevronDown,
-} from 'lucide-react';
+} from "lucide-react";
 
 const hoverClass =
   "relative pl-3 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-black before:scale-y-0 hover:before:scale-y-100 before:origin-top before:transition-transform before:duration-300";
@@ -71,7 +71,7 @@ const Header = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-6 bottom-6 left-0 h-[calc(100%-4rem)] w-64 bg-white/80 backdrop-blur-md transform
-          ${isOpen ? 'translate-x-4' : '-translate-x-full'}
+          ${isOpen ? "translate-x-4" : "-translate-x-full"}
           transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 rounded-xl shadow-xl overflow-hidden`}
       >
         {/* Exit Button */}
@@ -83,13 +83,25 @@ const Header = () => {
 
         {/* Sidebar Links */}
         <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
-          <Link href="/" onClick={() => setIsOpen(false)} className={hoverClass}>
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className={hoverClass}
+          >
             Home
           </Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className={hoverClass}>
+          <Link
+            href="/about"
+            onClick={() => setIsOpen(false)}
+            className={hoverClass}
+          >
             About Us
           </Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className={hoverClass}>
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className={hoverClass}
+          >
             Contact
           </Link>
 
@@ -102,34 +114,64 @@ const Header = () => {
               <span>Shop</span>
               <ChevronDown
                 size={20}
-                className={`transition-transform ${shopOpen ? 'rotate-180' : ''}`}
+                className={`transition-transform ${
+                  shopOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
             {shopOpen && (
               <div className="mt-2 ml-2 flex flex-col text-base border-l border-gray-300 pl-3 space-y-2">
-                <Link href="/shop" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   All
                 </Link>
-                <Link href="/shop/new" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop/new"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   New Collection
                 </Link>
-                <Link href="/shop/bestseller" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop/bestseller"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   Bestseller
                 </Link>
-                <Link href="/shop/for-her" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop/for-her"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   For Her
                 </Link>
-                <Link href="/shop/for-him" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop/for-him"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   For Him
                 </Link>
-                <Link href="/shop/unisex" onClick={() => setIsOpen(false)} className={hoverClass}>
+                <Link
+                  href="/shop/unisex"
+                  onClick={() => setIsOpen(false)}
+                  className={hoverClass}
+                >
                   Unisex
                 </Link>
               </div>
             )}
           </div>
 
-          <Link href="/faq" onClick={() => setIsOpen(false)} className={hoverClass}>
+          <Link
+            href="/faq"
+            onClick={() => setIsOpen(false)}
+            className={hoverClass}
+          >
             FAQ
           </Link>
         </div>
