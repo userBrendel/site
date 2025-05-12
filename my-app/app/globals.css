@@ -52,3 +52,5 @@ p {
   white-space: nowrap;
   /* Prevent text from wrapping */
 }
+
+*{border: 1px solid red;}

@@ -23,12 +23,13 @@ export default function Home() {
           <Header />
         </div>
 
-        <div className="absolute inset-0 grid grid-cols-2 gap-8 place-items-center text-center text-black px-4">
+        <div className="absolute inset-0 grid grid-cols-2 gap-8 place-items-center text-center text-black ">
           <div className="p-4">
             {/* Left Side Content */}
             Left Side
           </div>
-          <div className="p-4 flex flex-col items-center gap-4">
+
+          <div className="p-4 flex flex-col items-center gap-4 " style={{ backgroundImage: "url('Home.png')" }}>
             <h1 className="text-3xl font-light leading-tight tracking-[0.15em]">
               A sweet aroma, a reflection of His love
             </h1>
