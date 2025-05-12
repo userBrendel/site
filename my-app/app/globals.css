@@ -3,8 +3,8 @@
 
 /* globals.css */
 body {
-  background-color: #F5EFE6; 
-  color: #222; 
+  background-color: #F5EFE6;
+  color: #222;
 }
 
 a {
@@ -12,10 +12,16 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2 {
+  font-family: "Luxurious Roman", sans-serif;
+}
+
 /* Optional: nice scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgb(255, 255, 255);
   border-radius: 4px;
@@ -24,20 +30,21 @@ a {
 /* Keyframes for smooth continuous scroll */
 @keyframes marquee {
   0% {
-    transform: translateX(100%); /* Start from right */
+    transform: translateX(100%);
+    /* Start from right */
   }
+
   100% {
-    transform: translateX(-100%); /* End at left */
+    transform: translateX(-100%);
+    /* End at left */
   }
 }
 
 .animate-marquee {
-  display: flex; /* Align texts side by side */
-  animation: marquee 15s linear infinite; /* Duration for scrolling speed */
-  white-space: nowrap; /* Prevent text from wrapping */
+  display: flex;
+  /* Align texts side by side */
+  animation: marquee 15s linear infinite;
+  /* Duration for scrolling speed */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
 }
-
-
-
-
-

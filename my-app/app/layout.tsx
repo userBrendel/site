@@ -3,28 +3,17 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Luxurious_Roman, Quicksand } from "next/font/google";
 import "./globals.css";
 
-
 // Importing Luxurious Roman and Quicksand fonts
-const luxuriousRoman = Luxurious_Roman({
+export const luxuriousRoman = Luxurious_Roman({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-luxurious-roman",
 });
 
-const quicksand = Quicksand({
+export const quicksand = Quicksand({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"], 
-});
-
-// Importing Geist and Geist Mono fonts
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-quicksand",
 });
 
 export const metadata: Metadata = {
@@ -39,9 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${luxuriousRoman.variable} ${quicksand.variable} antialiased`}>
-  {children}
-</body>
+      <body
+        className={`${quicksand.variable} ${luxuriousRoman.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
