@@ -23,7 +23,7 @@ export default function Home() {
           <Header />
         </div>
 
-        <div className="absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1 text-center text-black w-full max-w-7xl px-4 mx-auto py-16">
+        <div className="absolute top-2/3 left-30 transform -translate-x-1/2 -translate-y-1/2 z-1 text-center text-black w-full max-w-7xl px-4 mx-auto py-16 ">
           <h1 className="text-3xl font-light mb-6 leading-tight tracking-[0.15em]">
             A sweet aroma, a reflection of His love <br /> - A sweet aroma
           </h1>
