@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+body {
+  background-color: rgb(234, 229, 221);
+  color: rgb(34, 34, 34);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  font-family: "Luxurious Roman", sans-serif;
+}
+
+p {
+  font-family: "Quicksand", sans-serif;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 15s linear infinite;
+  white-space: nowrap;
+}
+
+* {
+  border: 1px solid red;
+}

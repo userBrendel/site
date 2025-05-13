@@ -16,60 +16,56 @@ import {
 const hoverClass =
   "relative pl-3 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-black before:scale-y-0 hover:before:scale-y-100 before:origin-top before:transition-transform before:duration-300";
 
-const Header = () => {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
 
   return (
-    <header className="px-1 py-10 relative z-40">
-      {/* Top Navigation Bar */}
-      <div className="w-full px-4 mx-auto flex justify-between items-center">
-        {/* Left: Menu Button */}
-        
-        <div className="flex items-center space-x-6 text-black">
-          <button
+    <header className="px-12 py-8 relative z-100 w-full flex justify-between items-center">
+      {/* left */}
+      <div className="flex items-center space-x-6 text-black">
+        <button
           onClick={() => setIsOpen(true)}
           className="text-black flex items-center"
         >
           <Menu size={28} />
         </button>
-          <Link href="/account" className="invisible">
-            <User size={24} />
-          </Link>
-          <Link href="/wishlist" className="invisible">
-            <Heart size={24} />
-          </Link>
-          <Link href="/cart" className="invisible">
-            <ShoppingBag size={24} />
-          </Link>
-        </div>
-
-        {/* Center: Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="Ecommerce Logo"
-            width={50}
-            height={50}
-            priority
-          />
+        <Link href="/account" className="invisible">
+          <User size={24} />
         </Link>
+        <Link href="/wishlist" className="invisible">
+          <Heart size={24} />
+        </Link>
+        <Link href="/cart" className="invisible">
+          <ShoppingBag size={24} />
+        </Link>
+      </div>
 
-        {/* Right: Icons */}
-        <div className="flex items-center space-x-6 text-black">
-          <Link href="/search">
-            <Search size={24} />
-          </Link>
-          <Link href="/account">
-            <User size={24} />
-          </Link>
-          <Link href="/wishlist">
-            <Heart size={24} />
-          </Link>
-          <Link href="/cart">
-            <ShoppingBag size={24} />
-          </Link>
-        </div>
+      {/* logo */}
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/logo.png"
+          alt="Ecommerce Logo"
+          width={50}
+          height={50}
+          priority
+        />
+      </Link>
+
+      {/* right */}
+      <div className="flex items-center space-x-6 text-black">
+        <Link href="/search">
+          <Search size={24} />
+        </Link>
+        <Link href="/account">
+          <User size={24} />
+        </Link>
+        <Link href="/wishlist">
+          <Heart size={24} />
+        </Link>
+        <Link href="/cart">
+          <ShoppingBag size={24} />
+        </Link>
       </div>
 
       {/* Overlay */}
@@ -190,6 +186,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}
