@@ -1,18 +1,17 @@
-'use client';
+"use client";
 
-const promoText =
-  '🔥 Promotion • New Fragrance Launch • 20% Off All Orders • Limited Time Offer • Shop Now  ';
+type PromoBarProps = {
+  text: string;
+};
 
-const PromoBar = () => {
+export default function PromoBar({ text }: PromoBarProps) {
   return (
     <div className="bg-black py-6 overflow-hidden whitespace-nowrap relative">
       <div className="animate-marquee flex">
-        <span className="text-white text-m font-semibold mx-5">{promoText}</span>
-        <span className="text-white text-m font-semibold mx-5">{promoText}</span>
-         <span className="text-white text-m font-semibold mx-5">{promoText}</span>
+        <span className="text-white text-m font-semibold mx-5">{text}</span>
+        <span className="text-white text-m font-semibold mx-5">{text}</span>
+        <span className="text-white text-m font-semibold mx-5">{text}</span>
       </div>
     </div>
   );
-};
-
-export default PromoBar;
+}

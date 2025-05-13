@@ -1,14 +1,16 @@
+"use client";
+
 import Image from "next/image";
-import ShopNowButton from "./components/ShopNowButton";
 import PromoBar from "./components/PromoBar";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
     <>
       <section className="relative w-full h-screen text-center grid grid-cols-1 md:grid-cols-2">
         {/* left */}
-        <div className="h-full w-full pt-24 px-6 sm:px-10 md:px-14 lg:px-20 flex flex-col gap-10 items-center justify-center">
-          <h1 className="text-xl sm:text-2xl md:text-3xl">
+        <div className="h-screen md:h-full w-full px-6 md:pt-24 md:px-14 flex flex-col gap-10 items-center justify-center">
+          <h1 className="text-3xl">
             In the beginning, when the world was void and formless, a whisper of
             creation filled the air—Let There Be Fragrance.
           </h1>
@@ -24,7 +26,7 @@ export default function Home() {
 
         {/* right */}
         <div
-          className="h-full w-full px-6 pb-24 sm:px-10 md:px-14 lg:px-20 flex flex-col items-center gap-10 justify-end"
+          className="h-screen md:h-full w-full px-6 md:pb-24 md:px-14 flex flex-col gap-10 items-center justify-center md:justify-end bg-cover bg-center"
           style={{ backgroundImage: "url('home_clouds.png')" }}
         >
           <div>
@@ -33,11 +35,16 @@ export default function Home() {
             </h1>
             <p className="text-xl">A sweet aroma, a reflection of His love</p>
           </div>
-          <ShopNowButton />
+          <Button text="Shop Now" href="/shop" />
         </div>
       </section>
 
-      <PromoBar />
+      <PromoBar
+        text={
+          "🔥 Promotion • New Fragrance Launch • 20% Off All Orders • Limited Time Offer • Shop Now"
+        }
+      />
+
       {/* Page Content Below */}
       <section className="bg-white py-8">
         <div className="max-w-7xl mx-auto px-4">
