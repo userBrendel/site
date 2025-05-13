@@ -18,11 +18,12 @@ const hoverClass =
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [wishlistOpen, setWishlistOpen] = useState(false); // Wishlist state
   const [shopOpen, setShopOpen] = useState(false);
 
   return (
-    <header className="px-12 py-8 relative z-100 w-full flex justify-between items-center">
-      {/* left */}
+    <header className="px-12 py-10 relative z-100 w-full flex justify-between items-center">
+      {/* left section */}
       <div className="flex items-center space-x-6 text-black">
         <button
           onClick={() => setIsOpen(true)}
@@ -30,41 +31,55 @@ export default function Header() {
         >
           <Menu size={28} />
         </button>
-        <Link href="/account" className="invisible">
-          <User size={24} />
-        </Link>
-        <Link href="/wishlist" className="invisible">
-          <Heart size={24} />
-        </Link>
-        <Link href="/cart" className="invisible">
-          <ShoppingBag size={24} />
-        </Link>
       </div>
 
       {/* logo */}
-      <Link href="/" className="flex items-center">
-        <Image
-          src="/logo.png"
-          alt="Ecommerce Logo"
-          width={50}
-          height={50}
-          priority
-        />
-      </Link>
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Ecommerce Logo"
+            width={50}
+            height={50}
+            priority
+          />
+        </Link>
+      </div>
 
-      {/* right */}
+      {/* right section */}
       <div className="flex items-center space-x-6 text-black">
-        <Link href="/search">
-          <Search size={24} />
+        {/* SEARCH */}
+        <div className="relative group flex items-center">
+          <form action="/search" method="get" className="flex items-center w-full">
+            {/* Input field for typing */}
+            <input
+              type="text"
+              name="query"
+              placeholder="Search fragrance"
+              className="opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out text-sm text-gray-600 w-full border-none outline-none"
+            />
+            <Search
+              size={24}
+              className="text-black group-hover:text-gray-700 transition-colors duration-300"
+            />
+          </form>
+          {/* Underline with hover animation */}
+          <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-300"></span>
+        </div>
+
+        {/* Wishlist Icon with sliding effect */}
+        <button
+          onClick={() => setWishlistOpen(!wishlistOpen)} // Toggle wishlist
+          className="text-black flex items-center"
+        >
+          <Heart size={24} />
+        </button>
+
+        <Link href="/cart">
+          <ShoppingBag size={24} />
         </Link>
         <Link href="/account">
           <User size={24} />
-        </Link>
-        <Link href="/wishlist">
-          <Heart size={24} />
-        </Link>
-        <Link href="/cart">
-          <ShoppingBag size={24} />
         </Link>
       </div>
 
@@ -182,6 +197,32 @@ export default function Header() {
           >
             FAQ
           </Link>
+        </div>
+      </div>
+
+      {/* Wishlist Sidebar with sliding effect */}
+      <div
+        className={`fixed top-6 bottom-6 right-0 w-64 bg-white/80 backdrop-blur-md transform 
+          ${wishlistOpen ? "translate-x-0" : "translate-x-full"}
+          transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 rounded-xl shadow-xl overflow-hidden`}
+      >
+        {/* Exit Button for Wishlist */}
+        <div className="flex justify-end p-4">
+          <button onClick={() => setWishlistOpen(false)} className="text-black">
+            <X size={28} />
+          </button>
+        </div>
+
+        {/* Wishlist Content */}
+        <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
+          <h2 className="text-2xl">Your Wishlist</h2>
+          {/* Wishlist Items (You can map over your wishlist data here) */}
+          <div className="space-y-4">
+            <p>Item 1</p>
+            <p>Item 2</p>
+            <p>Item 3</p>
+            {/* Add more items or dynamic content here */}
+          </div>
         </div>
       </div>
     </header>
