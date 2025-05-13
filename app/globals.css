@@ -19,9 +19,13 @@ p {
   font-family: "Quicksand", sans-serif;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 
   100% {
@@ -29,9 +33,10 @@ p {
   }
 }
 
-.animate-marquee {
+.marquee-wrapper {
   display: flex;
-  animation: marquee 15s linear infinite;
+  width: max-content;
+  animation: marquee 120s linear infinite;
   white-space: nowrap;
 }
 
