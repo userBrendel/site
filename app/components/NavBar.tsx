@@ -12,6 +12,7 @@ import {
   User,
   ChevronDown,
 } from "lucide-react";
+import ProductCardWishlist from "./ProductCardWishlist";
 
 const hoverClass =
   "relative pl-3 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-black before:scale-y-0 hover:before:scale-y-100 before:origin-top before:transition-transform before:duration-300";
@@ -189,7 +190,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* wishlist Sidebar */}
+      {/* wishlist sidebar */}
       <div
         className={`fixed top-6 bottom-6 right-0 w-144  bg-white/80 backdrop-blur-md transform ${
           isWishListOpen ? "translate-x-0" : "translate-x-full"
@@ -202,11 +203,26 @@ export default function Header() {
         </div>
 
         <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
-          <h2 className="text-2xl">Your Wishlist</h2>
+          <div className="border-b flex justify-between items-center">
+            <h2 className="text-2xl">Your Wishlist</h2>
+            <h2>3 items</h2>
+          </div>
           <div className="space-y-4">
-            <p>Item 1</p>
-            <p>Item 2</p>
-            <p>Item 3</p>
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
           </div>
         </div>
       </div>

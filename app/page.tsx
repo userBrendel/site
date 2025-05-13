@@ -3,8 +3,8 @@
 import Image from "next/image";
 import PromoBar from "./components/PromoBar";
 import Button from "./components/FilledButton";
-import ProductCard from "./components/ProductCard";
 import ArrowButton from "./components/ArrowButton";
+import ProductCardHome from "./components/ProductCardHome";
 
 export default function Home() {
   const padding_y = "24";
@@ -67,17 +67,17 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
@@ -91,17 +91,17 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
@@ -115,17 +115,17 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}
           />
-          <ProductCard
+          <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
             price={255}

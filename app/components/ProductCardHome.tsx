@@ -1,12 +1,16 @@
 import { Heart } from "lucide-react";
 
-type ProductCardProps = {
+type ProductCardHomeProps = {
   image: string;
   name: string;
   price: number;
 };
 
-export default function ProductCard({ image, name, price }: ProductCardProps) {
+export default function ProductCardHome({
+  image,
+  name,
+  price,
+}: ProductCardHomeProps) {
   return (
     <section className="flex flex-col gap-4 justify-center items-center w-full max-w-100">
       <div
