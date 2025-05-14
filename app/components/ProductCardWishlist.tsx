@@ -1,35 +1,86 @@
-import { Heart } from "lucide-react";
+import { Heart, Minus, Plus } from "lucide-react";
+import { useState } from "react";
 import FilledButton from "./FilledButton";
 
 type ProductCardProps = {
   image: string;
   name: string;
   price: number;
+  onClick?: () => void;
 };
 
 export default function ProductCardWishlist({
   image,
   name,
   price,
+  onClick,
 }: ProductCardProps) {
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+  function IncrementQuantity() {
+    setQuantity((q) => q + 1);
+  }
+
+  function DecrementQuantity() {
+    setQuantity((q) => (q > 1 ? q - 1 : 1));
+  }
+
+  const sizes = ["50 ml", "80 ml", "100 ml"];
+
   return (
-    <section className="flex gap-4 items-center w-full max-w-md">
+    <section className="flex gap-8 items-center w-full">
       <div
-        className="w-40 h-40 bg-cover bg-center border flex justify-end items-start p-1"
+        className="w-44 h-44 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <Heart size={24} className="text-black" />
+        <Heart
+          onClick={onClick}
+          size={24}
+          className="text-black cursor-pointer"
+        />
       </div>
-      <div className="flex gap-2 flex-col">
-        <div className="flex gap-4 items-center">
+
+      <div className="flex flex-col gap-2 w-full">
+        <div className="flex justify-between items-center w-full">
           <p className="text-2xl font-semibold">{name}</p>
-          <p className="text-gray-700 text-sm">Dhs. {price}.00</p>
+          <p className="text-gray-700 text-sm whitespace-nowrap">
+            Dhs. {price}.00
+          </p>
         </div>
 
-        <div className="flex gap-4  items-center">
-          <p>50 ml</p>
-          <p>80 ml</p>
-          <p>100ml</p>
+        <div className="flex gap-4 items-center">
+          {sizes.map((size) => (
+            <button
+              key={size}
+              onClick={() => setSelectedSize(size)}
+              className={`text-sm cursor-pointer px-2 py-1 border transition-all hover:shadow-lg hover:scale-105 duration-300 ${
+                selectedSize === size
+                  ? "bg-black text-white border-black"
+                  : "text-black"
+              }`}
+            >
+              {size}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex gap-4 items-center">
+          <span className="text-sm">Quantity: {quantity}</span>
+          <div className="flex gap-4 items-center">
+            <button
+              onClick={IncrementQuantity}
+              className="border p-1 hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              <Plus size={16} />
+            </button>
+            <button
+              onClick={DecrementQuantity}
+              className="border p-1 hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              <Minus size={16} />
+            </button>
+          </div>
         </div>
 
         <FilledButton onClick={() => {}}>Add to Cart</FilledButton>

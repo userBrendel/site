@@ -7,8 +7,6 @@ import ArrowButton from "./components/ArrowButton";
 import ProductCardHome from "./components/ProductCardHome";
 
 export default function Home() {
-  const padding_y = "24";
-
   return (
     <>
       {/* hero */}
@@ -52,7 +50,7 @@ export default function Home() {
       />
 
       {/* popular fragrance */}
-      <section className={`py-${padding_y} px-12 flex flex-col gap-8`}>
+      <section className="py-24 px-12 flex flex-col gap-8">
         <div className="flex items-center gap-8">
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
             Popular Fragrance
@@ -134,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* abut us */}
-      <section className={`py-${padding_y} px-12`}>
+      <section className="py-24 px-12">
         <div className="flex items-center gap-8">
           <div className="flex-grow border-t border-black-300" />
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
@@ -144,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* new collection */}
-      <section className={`py-${padding_y} px-12`}>
+      <section className="py-24 px-12">
         <div className="flex items-center gap-8">
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
             New Collection

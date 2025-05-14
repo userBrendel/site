@@ -77,7 +77,7 @@ export default function Header() {
           <span className="absolute bottom-[-2px] left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 origin-right transition-transform duration-300" />
         </div>
 
-        {/* Wishlist */}
+        {/* wishlist */}
         <button
           onClick={() => {
             setWishlistOpen(true);
@@ -91,7 +91,7 @@ export default function Header() {
         <Link href="/cart">
           <ShoppingBag size={24} />
         </Link>
-        <Link href="/LogIn">
+        <Link href="/signin">
           <User size={24} />
         </Link>
       </div>
@@ -105,9 +105,9 @@ export default function Header() {
 
       {/* nav sidebar */}
       <div
-        className={`fixed top-6 bottom-6 left-0 h-[calc(100%-4rem)] w-64 bg-white/80 backdrop-blur-md transform ${
-          isNavSideBarOpen ? "translate-x-4" : "-translate-x-full"
-        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 rounded-xl shadow-xl overflow-hidden`}
+        className={`fixed top-0 bottom-0 left-0 w-64 bg-white/80 backdrop-blur-md transform ${
+          isNavSideBarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 overflow-hidden`}
       >
         <div className="flex justify-end p-4">
           <button onClick={closePanels} className="text-black">
@@ -192,9 +192,9 @@ export default function Header() {
 
       {/* wishlist sidebar */}
       <div
-        className={`fixed top-6 bottom-6 right-0 w-144  bg-white/80 backdrop-blur-md transform ${
+        className={`fixed top-0 bottom-0 right-0 w-164 bg-white/80 backdrop-blur-md transform ${
           isWishListOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 rounded-xl shadow-xl overflow-hidden`}
+        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50  overflow-hidden`}
       >
         <div className="flex justify-end p-4">
           <button onClick={closePanels} className="text-black">
@@ -202,12 +202,38 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
+        <div className="space-y-12 px-6 text-lg">
           <div className="border-b flex justify-between items-center">
-            <h2 className="text-2xl">Your Wishlist</h2>
+            <h1 className="text-3xl">Your Wishlist</h1>
             <h2>3 items</h2>
           </div>
-          <div className="space-y-4">
+
+          <div className="space-y-8 max-h-[80vh] overflow-y-auto pr-4 pb-8">
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
+            <ProductCardWishlist
+              image="/perfume_default.png"
+              name="Product name"
+              price={255}
+            />
             <ProductCardWishlist
               image="/perfume_default.png"
               name="Product name"
