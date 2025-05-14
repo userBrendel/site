@@ -50,7 +50,7 @@ export default function Home() {
       />
 
       {/* popular fragrance */}
-      <section className="py-24 px-12 flex flex-col gap-8">
+      <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
             Popular Fragrance
@@ -60,7 +60,7 @@ export default function Home() {
 
         <br />
 
-        <div>
+        <div className="flex justify-center md:justify-start">
           <ArrowButton type="right">For Her</ArrowButton>
         </div>
 

@@ -3,19 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Menu,
-  X,
-  Search,
-  Heart,
-  ShoppingBag,
-  User,
-  ChevronDown,
-} from "lucide-react";
-import ProductCardWishlist from "./ProductCardWishlist";
-
-const hoverClass =
-  "relative pl-3 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-black before:scale-y-0 hover:before:scale-y-100 before:origin-top before:transition-transform before:duration-300";
+import { Menu, X, Search, Heart, ShoppingBag, User } from "lucide-react";
+import WishlistSideBar from "./WishlistSidebar";
+import NavSideBar from "./NavSideBar";
 
 export default function Header() {
   const [isNavSideBarOpen, setNavSideBarOpen] = useState(false);
@@ -28,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <header className="px-12 py-10 relative z-100 w-full flex justify-between items-center">
+    <nav className="px-12 py-10 relative z-100 w-full flex justify-between items-center">
       {/* left */}
       <div className="flex items-center space-x-6 text-black">
         <button
@@ -103,155 +93,17 @@ export default function Header() {
         />
       )}
 
-      {/* nav sidebar */}
-      <div
-        className={`fixed top-0 bottom-0 left-0 w-64 bg-white/80 backdrop-blur-md transform ${
-          isNavSideBarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50 overflow-hidden`}
-      >
-        <div className="flex justify-end p-4">
-          <button onClick={closePanels} className="text-black">
-            <X size={28} />
-          </button>
-        </div>
+      <NavSideBar
+        isNavSideBarOpen={isNavSideBarOpen}
+        closePanels={closePanels}
+        isShopOpen={isShopOpen}
+        setShopOpen={setShopOpen}
+      />
 
-        <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
-          <Link href="/" onClick={closePanels} className={hoverClass}>
-            Home
-          </Link>
-          <Link href="/about" onClick={closePanels} className={hoverClass}>
-            About Us
-          </Link>
-          <Link href="/contact" onClick={closePanels} className={hoverClass}>
-            Contact
-          </Link>
-
-          <div>
-            <button
-              onClick={() => setShopOpen(!isShopOpen)}
-              className={`flex justify-between items-center w-full ${hoverClass}`}
-            >
-              <span>Shop</span>
-              <ChevronDown
-                size={20}
-                className={`transition-transform ${
-                  isShopOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {isShopOpen && (
-              <div className="mt-2 ml-2 flex flex-col text-base border-l border-gray-300 pl-3 space-y-2">
-                <Link href="/shop" onClick={closePanels} className={hoverClass}>
-                  All
-                </Link>
-                <Link
-                  href="/shop/new"
-                  onClick={closePanels}
-                  className={hoverClass}
-                >
-                  New Collection
-                </Link>
-                <Link
-                  href="/shop/bestseller"
-                  onClick={closePanels}
-                  className={hoverClass}
-                >
-                  Bestseller
-                </Link>
-                <Link
-                  href="/shop/for-her"
-                  onClick={closePanels}
-                  className={hoverClass}
-                >
-                  For Her
-                </Link>
-                <Link
-                  href="/shop/for-him"
-                  onClick={closePanels}
-                  className={hoverClass}
-                >
-                  For Him
-                </Link>
-                <Link
-                  href="/shop/unisex"
-                  onClick={closePanels}
-                  className={hoverClass}
-                >
-                  Unisex
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link href="/faq" onClick={closePanels} className={hoverClass}>
-            FAQ
-          </Link>
-        </div>
-      </div>
-
-      {/* wishlist sidebar */}
-      <div
-        className={`fixed top-0 bottom-0 right-0 w-164 bg-white/80 backdrop-blur-md transform ${
-          isWishListOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-600 ease-[cubic-bezier(0.77, 0, 0.175, 1)] z-50  overflow-hidden`}
-      >
-        <div className="flex justify-end p-4">
-          <button onClick={closePanels} className="text-black">
-            <X size={28} />
-          </button>
-        </div>
-
-        <div className="space-y-12 px-6 text-lg">
-          <div className="border-b flex justify-between items-center">
-            <h1 className="text-3xl">Your Wishlist</h1>
-            <h2>3 items</h2>
-          </div>
-
-          <div className="space-y-8 max-h-[80vh] overflow-y-auto pr-4 pb-8">
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-            <ProductCardWishlist
-              image="/perfume_default.png"
-              name="Product name"
-              price={255}
-            />
-          </div>
-        </div>
-      </div>
-    </header>
+      <WishlistSideBar
+        isWishListOpen={isWishListOpen}
+        closePanels={closePanels}
+      />
+    </nav>
   );
 }

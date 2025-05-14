@@ -6,14 +6,16 @@ type ProductCardProps = {
   image: string;
   name: string;
   price: number;
-  onClick?: () => void;
+  onClickHeart?: () => void;
+  onClickAddToCart?: () => void;
 };
 
 export default function ProductCardWishlist({
   image,
   name,
   price,
-  onClick,
+  onClickHeart,
+  onClickAddToCart,
 }: ProductCardProps) {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -31,18 +33,18 @@ export default function ProductCardWishlist({
   return (
     <section className="flex gap-8 items-center w-full">
       <div
-        className="w-44 h-44 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
+        className="w-48 h-48 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
         style={{ backgroundImage: `url(${image})` }}
       >
         <Heart
-          onClick={onClick}
+          onClick={onClickHeart}
           size={24}
           className="text-black cursor-pointer"
         />
       </div>
 
       <div className="flex flex-col gap-2 w-full">
-        <div className="flex justify-between items-center w-full">
+        <div className="md:flex justify-between items-center w-full">
           <p className="text-2xl font-semibold">{name}</p>
           <p className="text-gray-700 text-sm whitespace-nowrap">
             Dhs. {price}.00
@@ -54,10 +56,8 @@ export default function ProductCardWishlist({
             <button
               key={size}
               onClick={() => setSelectedSize(size)}
-              className={`text-sm cursor-pointer px-2 py-1 border transition-all hover:shadow-lg hover:scale-105 duration-300 ${
-                selectedSize === size
-                  ? "bg-black text-white border-black"
-                  : "text-black"
+              className={`text-sm cursor-pointer px-2 py-1 border transition-[box-shadow,scale] hover:shadow-lg hover:scale-105 duration-300 ${
+                selectedSize === size ? "bg-black text-white" : "text-black"
               }`}
             >
               {size}
@@ -83,7 +83,7 @@ export default function ProductCardWishlist({
           </div>
         </div>
 
-        <FilledButton onClick={() => {}}>Add to Cart</FilledButton>
+        <FilledButton onClick={onClickAddToCart}>Add to Cart</FilledButton>
       </div>
     </section>
   );
