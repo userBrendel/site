@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, Search, Heart, ShoppingBag, User } from "lucide-react";
-import SideBarWishlist from "./SideBarWishlist";
-import SideBarNav from "./SideBarNav";
-import CartSideBar from "./SideBarBag";
+import SideBarWishlist from "./RightSideBar/SideBarWishlist";
+import SideBarNav from "./RightSideBar/SideBarNav";
+import CartSideBar from "./RightSideBar/SideBarBag";
 
 export default function Header() {
   const [isNavSideBarOpen, setNavSideBarOpen] = useState(false);

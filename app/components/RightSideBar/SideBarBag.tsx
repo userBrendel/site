@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
-import FilledButton from "./FilledButton";
-import ProductCardBag from "./ProductCardCart";
+import FilledButton from "../Button/FilledButton";
+import ProductCardBag from "../ProductCard/ProductCardCart";
 
 type SideBarBagProps = {
   isCartOpen: boolean;

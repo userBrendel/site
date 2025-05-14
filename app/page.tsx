@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import PromoBar from "./components/PromoBar";
-import Button from "./components/FilledButton";
-import ArrowButton from "./components/ArrowButton";
-import ProductCardHome from "./components/ProductCardHome";
+import Button from "./components/Button/FilledButton";
+import ArrowButton from "./components/Button/ArrowButton";
+import ProductCardHome from "./components/ProductCard/ProductCardHome";
 
 export default function Home() {
   return (
@@ -53,7 +53,7 @@ export default function Home() {
       <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
-            Popular Fragrance
+            Categories
           </h2>
           <div className="flex-grow border-t border-black-300" />
         </div>

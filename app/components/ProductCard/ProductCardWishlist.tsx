@@ -1,6 +1,6 @@
 import { Heart, Minus, Plus } from "lucide-react";
 import { useState } from "react";
-import FilledButton from "./FilledButton";
+import FilledButton from "../Button/FilledButton";
 
 type ProductCardWishlistProps = {
   image: string;
