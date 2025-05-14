@@ -1,23 +1,23 @@
 import { X } from "lucide-react";
 import FilledButton from "./FilledButton";
 
-type ProductCardCartProps = {
+type ProductCardBagProps = {
   image: string;
   name: string;
   price: number;
   quantity: number;
   size: number;
-  onClickRemoveFromCart?: () => void;
+  onClickRemoveFromBag?: () => void;
 };
 
-export default function ProductCardCart({
+export default function ProductCardBag({
   image,
   name,
   price,
   quantity,
   size,
-  onClickRemoveFromCart,
-}: ProductCardCartProps) {
+  onClickRemoveFromBag,
+}: ProductCardBagProps) {
   return (
     <section className="flex gap-8 items-center w-full">
       <div
@@ -38,8 +38,8 @@ export default function ProductCardCart({
           <p>Quantity: {quantity}</p>
         </div>
 
-        <FilledButton onClick={onClickRemoveFromCart}>
-          Remove From Cart
+        <FilledButton onClick={onClickRemoveFromBag}>
+          Remove From Bag
         </FilledButton>
       </div>
     </section>

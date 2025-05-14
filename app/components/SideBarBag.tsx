@@ -1,17 +1,16 @@
 import { X } from "lucide-react";
 import FilledButton from "./FilledButton";
-import ProductCardWishlist from "./ProductCardWishlist";
-import ProductCardCart from "./ProductCardCart";
+import ProductCardBag from "./ProductCardCart";
 
-type SideBarCartProps = {
+type SideBarBagProps = {
   isCartOpen: boolean;
   closePanels: () => void;
 };
 
-export default function SideBarCart({
+export default function SideBarBag({
   isCartOpen,
   closePanels,
-}: SideBarCartProps) {
+}: SideBarBagProps) {
   return (
     <div
       className={`fixed top-0 bottom-0 right-0 w-full lg:w-244 bg-white backdrop-blur-md transform overflow-y-auto ${
@@ -32,35 +31,35 @@ export default function SideBarCart({
           </div>
 
           <div className="space-y-8">
-            <ProductCardCart
+            <ProductCardBag
               image={"/perfume_default.png"}
               name={"product name"}
               price={255}
               quantity={3}
               size={50}
             />
-            <ProductCardCart
+            <ProductCardBag
               image={"/perfume_default.png"}
               name={"product name"}
               price={255}
               quantity={3}
               size={50}
             />
-            <ProductCardCart
+            <ProductCardBag
               image={"/perfume_default.png"}
               name={"product name"}
               price={255}
               quantity={3}
               size={50}
             />
-            <ProductCardCart
+            <ProductCardBag
               image={"/perfume_default.png"}
               name={"product name"}
               price={255}
               quantity={3}
               size={50}
             />
-            <ProductCardCart
+            <ProductCardBag
               image={"/perfume_default.png"}
               name={"product name"}
               price={255}

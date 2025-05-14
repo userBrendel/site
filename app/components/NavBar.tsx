@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Search, Heart, ShoppingBag, User } from "lucide-react";
+import { Menu, Search, Heart, ShoppingBag, User } from "lucide-react";
 import SideBarWishlist from "./SideBarWishlist";
 import SideBarNav from "./SideBarNav";
-import CartSideBar from "./SideBarCart";
+import CartSideBar from "./SideBarBag";
 
 export default function Header() {
   const [isNavSideBarOpen, setNavSideBarOpen] = useState(false);

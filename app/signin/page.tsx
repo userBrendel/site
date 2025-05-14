@@ -2,11 +2,11 @@ import React from "react";
 import FilledButton from "../components/FilledButton";
 import Link from "next/link";
 
-export default function Login() {
+export default function Signin() {
   return (
-    <main className="my-40 mx-60 grid grid-cols-2 gap-6">
+    <main className="py-48 px-16 grid grid-cols-1 md:grid-cols-2 gap-6">
       <section>
-        <div className="border p-10 flex flex-col gap-4">
+        <div className="border p-8 flex flex-col gap-4">
           <h1 className="text-4xl">Greetings New Customer!</h1>
           <p className="text-lg">
             Create an account now and stay updated with the latest LTBF
@@ -17,7 +17,7 @@ export default function Login() {
       </section>
 
       <section>
-        <div className="border p-10 flex flex-col gap-4">
+        <div className="border p-8 flex flex-col gap-4">
           <h1 className="text-4xl">Already have an account?</h1>
           <p className="text-lg">
             Sign in for an LTBF account to easily view and manage your past

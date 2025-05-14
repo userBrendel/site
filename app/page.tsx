@@ -131,18 +131,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* abut us */}
-      <section className="py-24 px-12">
+      {/* about us */}
+      <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
           <div className="flex-grow border-t border-black-300" />
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
             About Us
           </h2>
         </div>
+
+        <div className="flex">
+          <div>asdadad</div>
+          <div>asd</div>
+        </div>
       </section>
 
       {/* new collection */}
-      <section className="py-24 px-12">
+      <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
           <h2 className="font-bold text-3xl text-center whitespace-nowrap">
             New Collection

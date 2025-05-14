@@ -83,7 +83,7 @@ export default function ProductCardWishlist({
           </div>
         </div>
 
-        <FilledButton onClick={onClickAddToCart}>Add To Cart</FilledButton>
+        <FilledButton onClick={onClickAddToCart}>Add To Bag</FilledButton>
       </div>
     </section>
   );
