@@ -1,19 +1,19 @@
 import { X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
-type WishlistSideBarProps = {
+type SideBarNavProps = {
   isNavSideBarOpen: boolean;
   closePanels: () => void;
   isShopOpen: boolean;
   setShopOpen: (open: boolean) => void;
 };
 
-export default function NavSideBar({
+export default function SideBarNav({
   isNavSideBarOpen,
   closePanels,
   isShopOpen,
   setShopOpen,
-}: WishlistSideBarProps) {
+}: SideBarNavProps) {
   const hoverClass =
     "relative pl-3 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-black before:scale-y-0 hover:before:scale-y-100 before:origin-top before:transition-transform before:duration-300";
 

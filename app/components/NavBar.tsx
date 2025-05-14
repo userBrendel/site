@@ -4,18 +4,22 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Search, Heart, ShoppingBag, User } from "lucide-react";
-import WishlistSideBar from "./WishlistSidebar";
-import NavSideBar from "./NavSideBar";
+import SideBarWishlist from "./SideBarWishlist";
+import SideBarNav from "./SideBarNav";
+import CartSideBar from "./SideBarCart";
 
 export default function Header() {
   const [isNavSideBarOpen, setNavSideBarOpen] = useState(false);
   const [isWishListOpen, setWishlistOpen] = useState(false);
   const [isShopOpen, setShopOpen] = useState(false);
+  const [isCartOpen, setCartOpen] = useState(false);
 
-  const closePanels = () => {
+  function closePanels() {
     setNavSideBarOpen(false);
     setWishlistOpen(false);
-  };
+    setShopOpen(false);
+    setCartOpen(false);
+  }
 
   return (
     <nav className="px-12 py-10 relative z-100 w-full flex justify-between items-center">
@@ -23,8 +27,8 @@ export default function Header() {
       <div className="flex items-center space-x-6 text-black">
         <button
           onClick={() => {
+            closePanels();
             setNavSideBarOpen(true);
-            setWishlistOpen(false);
           }}
           className="text-black flex items-center"
         >
@@ -70,40 +74,49 @@ export default function Header() {
         {/* wishlist */}
         <button
           onClick={() => {
+            closePanels();
             setWishlistOpen(true);
-            setNavSideBarOpen(false);
           }}
           className="text-black flex items-center"
         >
           <Heart size={24} />
         </button>
 
-        <Link href="/cart">
+        <button
+          onClick={() => {
+            closePanels();
+            setCartOpen(true);
+          }}
+          className="text-black flex items-center"
+        >
           <ShoppingBag size={24} />
-        </Link>
+        </button>
+
         <Link href="/signin">
           <User size={24} />
         </Link>
       </div>
 
-      {(isNavSideBarOpen || isWishListOpen) && (
+      {(isNavSideBarOpen || isWishListOpen || isCartOpen) && (
         <div
           className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
           onClick={closePanels}
         />
       )}
 
-      <NavSideBar
+      <SideBarNav
         isNavSideBarOpen={isNavSideBarOpen}
         closePanels={closePanels}
         isShopOpen={isShopOpen}
         setShopOpen={setShopOpen}
       />
 
-      <WishlistSideBar
+      <SideBarWishlist
         isWishListOpen={isWishListOpen}
         closePanels={closePanels}
       />
+
+      <CartSideBar isCartOpen={isCartOpen} closePanels={closePanels} />
     </nav>
   );
 }

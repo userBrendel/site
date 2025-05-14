@@ -2,7 +2,7 @@ import { Heart, Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import FilledButton from "./FilledButton";
 
-type ProductCardProps = {
+type ProductCardWishlistProps = {
   image: string;
   name: string;
   price: number;
@@ -16,7 +16,7 @@ export default function ProductCardWishlist({
   price,
   onClickHeart,
   onClickAddToCart,
-}: ProductCardProps) {
+}: ProductCardWishlistProps) {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
@@ -83,7 +83,7 @@ export default function ProductCardWishlist({
           </div>
         </div>
 
-        <FilledButton onClick={onClickAddToCart}>Add to Cart</FilledButton>
+        <FilledButton onClick={onClickAddToCart}>Add To Cart</FilledButton>
       </div>
     </section>
   );
