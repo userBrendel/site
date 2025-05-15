@@ -1,4 +1,5 @@
 import React from 'react';
+import FilledButton from '../components/Button/FilledButton';
 
 const Page = () => {
   return (
@@ -14,7 +15,7 @@ const Page = () => {
       <section className="w-full overflow-x-auto">
         <h2 className="text-2xl md:text-3xl mb-4">Order History</h2>
         <div className="overflow-x-auto flex justify-center">
-          <table className="w-full border text-left text-sm mx-50">
+          <table className="w-full border text-left text-sm mx-40">
             <thead>
               <tr>
                 <th className="px-4 py-2 border">Order</th>
@@ -38,7 +39,7 @@ const Page = () => {
       <section className="w-full max-w-2xl space-y-6 text-left">
         <h2 className="text-2xl md:text-3xl mb-4 text-center">Your Account</h2>
 
-        {/* First Name and Last Name */}
+
         <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <div className="flex-1">
             <label className="block mb-1">First Name:</label>
@@ -50,13 +51,12 @@ const Page = () => {
           </div>
         </div>
 
-        {/* Email */}
         <div>
           <label className="block mb-1">Email:</label>
           <input type="email" className="w-full border px-3 py-2 rounded" />
         </div>
 
-        {/* Phone Number with Country Code */}
+
         <div>
           <label className="block mb-1">Phone:</label>
           <div className="flex flex-col sm:flex-row gap-2">
@@ -73,6 +73,35 @@ const Page = () => {
           </div>
         </div>
       </section>
+
+
+
+      <section className="w-full max-w-2xl space-y-6 text-left">
+        <h2 className="text-2xl md:text-3xl mb-4 text-center">Address Book</h2>
+
+        <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+          <div className="flex-1">
+            <label className="block mb-1">Country / Region:</label>
+            <input type="text" className="w-full border px-3 py-2 rounded" />
+          </div>
+          <div className="flex-1">
+            <label className="block mb-1">City:</label>
+            <input type="text" className="w-full border px-3 py-2 rounded" />
+          </div>
+        </div>
+
+
+        <div>
+          <label className="block mb-1">Address:</label>
+          <input type="email" className="w-full border px-3 py-2 rounded" />
+        </div>
+        <div className='text-center'>
+          <FilledButton>Update Account</FilledButton>
+        </div>
+
+      </section>
+
+    
     </div>
   );
 };
