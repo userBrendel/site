@@ -87,7 +87,7 @@ export default function ArrowButton({
 
   const buttonContent = (
     <h1
-      className={`flex gap-6 items-center border px-8 py-4 cursor-pointer ${
+      className={`flex p-4 items-center border cursor-pointer ${
         hovered ? "bg-black text-white" : "bg-transparent text-black"
       }`}
       onMouseEnter={() => setHovered(true)}

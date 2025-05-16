@@ -33,7 +33,7 @@ export default function ProductCardWishlist({
   return (
     <section className="flex gap-8 items-center w-full">
       <div
-        className="w-48 h-48 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
+        className="w-32 h-32 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
         style={{ backgroundImage: `url(${image})` }}
       >
         <Heart

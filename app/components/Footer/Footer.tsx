@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="p-12 border-t space-y-16">
+    <footer className="p-12 border-t space-y-16 text-center md:text-left">
       <section className="flex justify-center items-center gap-4">
         <Image
           src="/logo.png"
@@ -17,7 +17,7 @@ export default function Footer() {
         <h1>LET THERE BE FRAGRANCE</h1>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-5 md:justify-items-center text-center md:text-left gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-5 md:justify-items-center gap-8">
         <div className="flex flex-col">
           <h1 className="font-bold">Contact Us</h1>
           <Link href="#">04 548 8778</Link>
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
       </section>
 
-      <section className="flex justify-between">
+      <section className="flex justify-between gap-4">
         <Link href="#">Privacy Policy</Link>
         <h1>© Let There Be Fragrance 2025</h1>
       </section>
