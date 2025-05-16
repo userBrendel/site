@@ -147,12 +147,12 @@ export default function Home() {
               priority
               width={450}
               height={450}
-              className="object-contain w-full max-w-sm mx-auto"
+              className="object-contain w-full max-w-sm"
             />
 
             <div className="space-y-2 text-center md:text-left">
               <h2 className="text-xl font-bold">Vision</h2>
-              <p className="text-base md:text-lg">
+              <p className="text-lg">
                 To awaken the senses and elevate everyday moments through the
                 transformative power of fragrance, crafting a world where scent
                 becomes a universal language of beauty, emotion, and identity.
@@ -161,17 +161,17 @@ export default function Home() {
           </div>
 
           <div className="space-y-20">
-            <div className="space-y-2 text-center md:text-left">
+            <div className="space-y-2 text-center md:text-right">
               <h2 className="text-xl font-bold">Let There Be Fragrance</h2>
-              <p className="text-base md:text-lg">
+              <p className="text-lg">
                 In the beginning, when the world was void and formless, a
                 whisper of creation filled the air—Let There Be Fragrance.
               </p>
             </div>
 
-            <div className="space-y-2 text-center md:text-left">
+            <div className="space-y-2 text-center md:text-right">
               <h2 className="text-xl font-bold">Mission</h2>
-              <p className="text-base md:text-lg">
+              <p className="text-lg">
                 At Let There Be Fragrance, our mission is to create captivating,
                 high-quality scents that tell stories, spark memories, and
                 celebrate individuality.
@@ -262,7 +262,7 @@ export default function Home() {
           <div className="space-y-12">
             <div className="space-y-4 text-center">
               <h1 className="font-bold text-3xl">DISCOVER MORE OF LTBF</h1>
-              <p className="text-base md:text-lg">
+              <p className="text-lg">
                 In the beginning, when the world was void and formless, a
                 whisper of creation filled the air—Let There Be Fragrance.
               </p>

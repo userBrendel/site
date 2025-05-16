@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="p-12 border-t space-y-16 text-center md:text-left">
-      <section className="flex justify-center items-center gap-4">
+      <section className="flex flex-col md:flex-row items-center justify-center gap-2">
         <Image
           src="/logo.png"
           alt="Ecommerce Logo"
@@ -13,7 +13,6 @@ export default function Footer() {
           height={50}
           priority
         />
-
         <h1>LET THERE BE FRAGRANCE</h1>
       </section>
 
@@ -55,7 +54,7 @@ export default function Footer() {
 
       <section className="flex justify-between gap-4">
         <Link href="#">Privacy Policy</Link>
-        <h1>© Let There Be Fragrance 2025</h1>
+        <h1>© LTBF 2025</h1>
       </section>
     </footer>
   );
