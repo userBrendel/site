@@ -1,14 +1,14 @@
-import React from 'react';
-import FilledButton from '../components/Button/FilledButton';
+import React from "react";
+import FilledButton from "../components/ui/FilledButton";
 
 const Page = () => {
   return (
     <div className="flex flex-col items-center justify-center px-4 py-45 space-y-35 text-center">
-      
       <section className="mb-16">
         <h1 className="text-4xl md:text-5xl mb-4">My Account</h1>
         <p className="text-base md:text-lg">
-          Log in as email <span className="cursor-pointer underline">(Sign out)</span>
+          Log in as email{" "}
+          <span className="cursor-pointer underline">(Sign out)</span>
         </p>
       </section>
 
@@ -39,7 +39,6 @@ const Page = () => {
       <section className="w-full max-w-2xl space-y-6 text-left">
         <h2 className="text-2xl md:text-3xl mb-4 text-center">Your Account</h2>
 
-
         <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <div className="flex-1">
             <label className="block mb-1">First Name:</label>
@@ -55,7 +54,6 @@ const Page = () => {
           <label className="block mb-1">Email:</label>
           <input type="email" className="w-full border px-3 py-2 rounded" />
         </div>
-
 
         <div>
           <label className="block mb-1">Phone:</label>
@@ -74,8 +72,6 @@ const Page = () => {
         </div>
       </section>
 
-
-
       <section className="w-full max-w-2xl space-y-6 text-left">
         <h2 className="text-2xl md:text-3xl mb-4 text-center">Address Book</h2>
 
@@ -90,18 +86,14 @@ const Page = () => {
           </div>
         </div>
 
-
         <div>
           <label className="block mb-1">Address:</label>
           <input type="email" className="w-full border px-3 py-2 rounded" />
         </div>
-        <div className='text-center'>
-          <FilledButton>Update Account</FilledButton>
+        <div className="text-center">
+          <FilledButton size="sm">Update Account</FilledButton>
         </div>
-
       </section>
-
-    
     </div>
   );
 };

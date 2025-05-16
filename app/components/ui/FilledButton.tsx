@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 type FilledButtonProps = {
   children: string;
   href?: string;
+  size: string;
   onClick?: () => void;
 };
 
@@ -15,13 +16,13 @@ const MotionLink = motion(Link);
 export default function FilledButton({
   children,
   href,
+  size,
   onClick,
 }: FilledButtonProps) {
   const commonProps = {
     whileHover: { scale: 1.05, boxShadow: "0px 4px 14px rgba(0, 0, 0, 0.25)" },
     transition: { type: "spring", stiffness: 300, damping: 20 },
-    className:
-      "btn-wide inline-block py-2.5 px-6 text-m font-semibold !text-white bg-black border border-black text-center",
+    className: `btn-wide inline-block py-2.5 px-6 text-${size} font-semibold !text-white bg-black border border-black text-center`,
   };
 
   return href ? (

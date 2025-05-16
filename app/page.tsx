@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import PromoBar from "./components/PromoBar";
-import Button from "./components/Button/FilledButton";
-import ArrowButton from "./components/Button/ArrowButton";
-import ProductCardHome from "./components/ProductCard/ProductCardHome";
-import FilledButton from "./components/Button/FilledButton";
+import PromoBar from "./components/layout/PromoBar";
+import Button from "./components/ui/FilledButton";
+import ArrowButton from "./components/ui/ArrowButton";
+import ProductCardHome from "./components/cards/ProductCardHome";
+import FilledButton from "./components/ui/FilledButton";
 
 export default function Home() {
   return (
@@ -40,7 +40,9 @@ export default function Home() {
             </h1>
             <p className="text-xl">A sweet aroma, a reflection of His love.</p>
           </div>
-          <Button href="/shop">Shop Now</Button>
+          <Button size="xl" href="/shop">
+            Shop Now
+          </Button>
         </div>
       </section>
 
@@ -278,7 +280,7 @@ export default function Home() {
             </div>
 
             <div className="flex justify-end">
-              <FilledButton>Subscribe</FilledButton>
+              <FilledButton size="xl">Subscribe</FilledButton>
             </div>
           </div>
         </div>
