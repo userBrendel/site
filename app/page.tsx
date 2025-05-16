@@ -31,7 +31,7 @@ export default function Home() {
         {/* right */}
         <div
           className="h-screen md:h-full w-full px-6 md:pb-24 md:px-14 flex flex-col gap-10 items-center justify-center md:justify-end bg-cover bg-center"
-          style={{ backgroundImage: "url('home_clouds.png')" }}
+          style={{ backgroundImage: "url('clouds.png')" }}
         >
           <div>
             <h1 className="text-4xl">
@@ -141,44 +141,55 @@ export default function Home() {
           </h1>
         </div>
 
-        <div>
-          <div className="grid grid-cols-2">
-            <div className="">
+        <div className="grid grid-cols-2">
+          <div className="space-y-16">
             <Image
-            src="/AboutUs.png"
-            alt="about"
-            priority
-            width={450}
-            height={450}
-            className="object-contain"
+              src="/scent_studio1.png"
+              alt="about"
+              priority
+              width={450}
+              height={450}
+              className="object-contain"
             />
-            <h1 className="text-2xl font-bold mt-10">Vision</h1>
-            <p className="text-2xl">To awaken the senses and elevate everyday moments through the transformative power of fragrance, crafting a world where scent becomes a universal language of beauty, emotion, and identity.</p></div>
 
-            <div className="space-y-4">
-            <h1 className="font-bold text-2xl ">
-            Let There Be Fragrance
-            </h1>
-            <p className="text-2xl">
-            In the beginning, when the world was void and formless, a whisper of creation filled the air—Let There Be Fragrance.</p> 
-            
-            <h1 className="text-2xl font-bold mt-50">Mission</h1>
-            <p className="text-2xl">At Let There Be Fragrance, our mission is to create captivating, high-quality scents that tell stories, spark memories, and celebrate individuality. </p>
-            
-            
-
-            <div className="flex justify-end mt-25"><Image
-            src="/AboutUs2.png"
-            alt="about"
-            priority
-            width={400}
-            height={400}
-            className="object-contain"/></div>
-                       
+            <div>
+              <h1 className="text-xl font-bold">Vision</h1>
+              <p className="text-lg">
+                To awaken the senses and elevate everyday moments through the
+                transformative power of fragrance, crafting a world where scent
+                becomes a universal language of beauty, emotion, and identity.
+              </p>
             </div>
-          </div>   
-          <div>
+          </div>
 
+          <div className="space-y-36">
+            <div>
+              <h1 className="text-xl font-bold">Let There Be Fragrance</h1>
+              <p className="text-lg">
+                In the beginning, when the world was void and formless, a
+                whisper of creation filled the air—Let There Be Fragrance.
+              </p>
+            </div>
+
+            <div>
+              <h1 className="text-xl font-bold">Mission</h1>
+              <p className="text-lg">
+                At Let There Be Fragrance, our mission is to create captivating,
+                high-quality scents that tell stories, spark memories, and
+                celebrate individuality.{" "}
+              </p>
+            </div>
+
+            <div className="flex justify-end">
+              <Image
+                src="/scent_studio2.png"
+                alt="about"
+                priority
+                width={400}
+                height={400}
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -191,8 +202,8 @@ export default function Home() {
           </h1>
           <div className="flex-grow border-t border-black-300" />
         </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -214,13 +225,14 @@ export default function Home() {
       {/* best seller */}
       <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
-           <div className="flex-grow border-t border-black-300" />
+          <div className="flex-grow border-t border-black-300" />
           <h1 className="font-bold text-3xl text-center whitespace-nowrap">
             Best Seller
           </h1>
           <div className="flex-grow border-t border-black-300" />
         </div>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -237,43 +249,53 @@ export default function Home() {
             price={255}
           />
         </div>
-        </section>
+      </section>
 
-        <section className="py-24 px-16 lg:px-48 space-y-8 border grid grid-cols-2 gap-10">
-           
-           <Image
-            src="/Boat.png"
+      {/* discover more */}
+      <section className="py-24 px-16 lg:px-48 space-y-8">
+        <div className="flex items-center gap-8">
+          <div className="flex-grow border-t border-black-300" />
+        </div>
+
+        <div className=" grid grid-cols-2 gap-12">
+          <Image
+            src="/boats.png"
             alt="about"
             priority
             width={450}
             height={450}
             className="object-contain"
-            />
+          />
 
-            <div>
-              <h1 className="font-bold text-3xl text-center">DISCOVER MORE OF LTBF</h1>
-              <p className="text-center mt-10 mb-30">In the beginning, when the world was void and formless, a whisper of creation filled the air—Let There Be Fragrance.</p>
+          <div className="space-y-32">
+            <div className="space-y-8">
+              <h1 className="font-bold text-3xl text-center">
+                DISCOVER MORE OF LTBF
+              </h1>
+              <p className="text-center text-lg">
+                In the beginning, when the world was void and formless, a
+                whisper of creation filled the air—Let There Be Fragrance.
+              </p>
+            </div>
 
-              
-              <label className="text-2xl" >Name:</label> <br />
-              <input type="text" className="mb-20 w-full border-b"></input><br />
-              
-              
-              <label className="text-2xl">Email:</label> <br />
-              <input type="text" className="w-full border-b mb-20"></input>
-              <div className="flex justify-end">
-              <FilledButton>Subscribe</FilledButton>
+            <div className="space-y-16">
+              <div>
+                <label className="text-2xl">Name:</label>
+                <input className="w-full border-b py-2 focus:outline-none focus:ring-0" />
+              </div>
+
+              <div>
+                <label className="text-2xl">Email:</label> <br />
+                <input className="w-full border-b py-2 focus:outline-none focus:ring-0" />
               </div>
             </div>
 
-
-        
-        </section>
-
-        
-
-
-
+            <div className="flex justify-end">
+              <FilledButton>Subscribe</FilledButton>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

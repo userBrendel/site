@@ -12,40 +12,40 @@ type ArrowButtonProps = {
   type: "left" | "right";
 };
 
-const AnimatedArrow = ({ direction, isHovered }: { direction: "left" | "right"; isHovered: boolean }) => {
+const AnimatedArrow = ({
+  direction,
+  isHovered,
+}: {
+  direction: "left" | "right";
+  isHovered: boolean;
+}) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: false,
-  });
 
   useEffect(() => {
-    if (inView) {
+    if (isHovered) {
       controls.start("visible");
     } else {
       controls.start("hidden");
     }
-  }, [inView, controls]);
+  }, [isHovered, controls]);
 
-  
   const variants = {
-  hidden: {
-    opacity: 0,
-    x: direction === "left" ? 80 : -80, // larger distance
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1.2, // slower animation
-      ease: "easeOut",
+    hidden: {
+      scaleX: 0,
+      transformOrigin: direction === "left" ? "right center" : "left center",
     },
-  },
-};
+    visible: {
+      scaleX: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
-  const className = `${
-    direction === "left" ? "mr-3" : "ml-3"
-  } w-40 h-5 ${isHovered ? "text-white" : "text-black"}`;
+  const className = `${direction === "left" ? "mr-3" : "ml-3"} w-40 h-5 ${
+    isHovered ? "text-white" : "text-black"
+  }`;
 
   const points =
     direction === "left"
@@ -54,7 +54,6 @@ const AnimatedArrow = ({ direction, isHovered }: { direction: "left" | "right"; 
 
   return (
     <motion.svg
-      ref={ref}
       className={className}
       viewBox="0 0 200 20"
       fill="none"
@@ -62,6 +61,7 @@ const AnimatedArrow = ({ direction, isHovered }: { direction: "left" | "right"; 
       initial="hidden"
       animate={controls}
       variants={variants}
+      display={"block"}
     >
       <polyline
         points={points}
@@ -77,20 +77,29 @@ const AnimatedArrow = ({ direction, isHovered }: { direction: "left" | "right"; 
 
 import { useState } from "react";
 
-export default function ArrowButton({ children, href, onClick, type }: ArrowButtonProps) {
+export default function ArrowButton({
+  children,
+  href,
+  onClick,
+  type,
+}: ArrowButtonProps) {
   const [hovered, setHovered] = useState(false);
 
   const buttonContent = (
     <h1
-      className={`flex gap-6 items-center border px-8 py-4 cursor-pointer transition-colors duration-300 ${
+      className={`flex gap-6 items-center border px-8 py-4 cursor-pointer ${
         hovered ? "bg-black text-white" : "bg-transparent text-black"
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {type === "left" && <AnimatedArrow direction="left" isHovered={hovered} />}
+      {type === "left" && (
+        <AnimatedArrow direction="left" isHovered={hovered} />
+      )}
       <span className="text-xl">{children}</span>
-      {type === "right" && <AnimatedArrow direction="right" isHovered={hovered} />}
+      {type === "right" && (
+        <AnimatedArrow direction="right" isHovered={hovered} />
+      )}
     </h1>
   );
 

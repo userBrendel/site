@@ -1,70 +1,62 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    
-      <footer className='p-10'>
-
-      {/*  */}
-        <section className='flex justify-center items-center p-10 gap-5'>
+    <footer className="p-12 border-t space-y-16">
+      <section className="flex justify-center items-center gap-4">
         <Image
-        src="/logo.png"
-        alt="Ecommerce Logo"
-        width={50}
-        height={50}
-        priority
-                  />
-                  
+          src="/logo.png"
+          alt="Ecommerce Logo"
+          width={50}
+          height={50}
+          priority
+        />
+
         <h1>LET THERE BE FRAGRANCE</h1>
-        </section>
-
-
-      <section className='grid grid-cols-5 place-items-center'>
-        <div>
-        <h1 className='font-bold'>Contact Us</h1>
-        <p>902384217837</p>
-        <p>duegwdiu@gmail.com</p>
-        </div>
-
-        <div>
-        <h1 className='font-bold'>Follow Us</h1>
-        <Link href="tiktok.com">TikTok</Link>
-        <p>Instagram</p>
-        </div>
-
-        <div>
-        <h1 className='font-bold'>Quick Links</h1>
-        <p>902384217837</p>
-        <p>duegwdiu@gmail.com</p>
-        </div>
-
-        <div>
-        <h1 className='font-bold'>Assistance</h1>
-        <p>902384217837</p>
-        <p>duegwdiu@gmail.com</p>
-        </div>
-
-        <div>
-        <h1 className='font-bold'>Stay Connected</h1>
-        <input className="border" placeholder="Enter Email"/>
-        <button className="border">Subscribe</button>
-        
-       
-        
-        </div>
-        
-     
-      </section>
-      
-      
-      <section className='flex pt-10 justify-between'>
-        <p>Privacy Policy</p>
-        <h1>©Let There Be Fragrance 2025</h1>
       </section>
 
-  </footer>
-    
-  )
+      <section className="grid grid-cols-1 md:grid-cols-5 md:justify-items-center text-center md:text-left gap-8">
+        <div className="flex flex-col">
+          <h1 className="font-bold">Contact Us</h1>
+          <Link href="#">04 548 8778</Link>
+          <Link href="#">info@ltbl-institute.net</Link>
+        </div>
+
+        <div className="flex flex-col">
+          <h1 className="font-bold">Follow Us</h1>
+          <Link href="tiktok.com" target="_blank">
+            TikTok
+          </Link>
+          <Link href="facebook.com" target="_blank">
+            Facebook
+          </Link>
+        </div>
+
+        <div className="flex flex-col">
+          <h1 className="font-bold">Quick Links</h1>
+          <Link href="#">Shop</Link>
+          <Link href="#">Bestseller</Link>
+        </div>
+
+        <div className="flex flex-col">
+          <h1 className="font-bold">Assistance</h1>
+          <Link href="#">Shipping & Returns</Link>
+          <Link href="#">Payment</Link>
+        </div>
+
+        <div className="text-center">
+          <h1 className="font-bold ">Stay Connected</h1>
+          <input className="p-1 border w-32" placeholder="Enter Email" />
+          <button className="border p-1">Subscribe</button>
+        </div>
+      </section>
+
+      <section className="flex justify-between">
+        <Link href="#">Privacy Policy</Link>
+        <h1>© Let There Be Fragrance 2025</h1>
+      </section>
+    </footer>
+  );
 }

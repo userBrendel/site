@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type FilledButtonProps = {
   children: string;
@@ -8,24 +9,28 @@ type FilledButtonProps = {
   onClick?: () => void;
 };
 
+const MotionButton = motion.button;
+const MotionLink = motion(Link);
+
 export default function FilledButton({
   children,
   href,
   onClick,
 }: FilledButtonProps) {
+  const commonProps = {
+    whileHover: { scale: 1.05, boxShadow: "0px 4px 14px rgba(0, 0, 0, 0.25)" },
+    transition: { type: "spring", stiffness: 300, damping: 20 },
+    className:
+      "btn-wide inline-block py-2.5 px-6 text-m font-semibold !text-white bg-black border border-black text-center",
+  };
+
   return href ? (
-    <Link
-      href={href}
-      className="btn-wide inline-block py-2.5 px-6 text-m font-semibold !text-white bg-black border border-black hover:shadow-lg hover:scale-105 transition-all duration-300 text-center"
-    >
+    <MotionLink href={href} {...commonProps}>
       {children}
-    </Link>
+    </MotionLink>
   ) : (
-    <button
-      className="btn-wide inline-block py-2.5 px-6 text-m font-semibold !text-white bg-black border border-black  hover:shadow-lg hover:scale-105 transition-all duration-300 text-center"
-      onClick={onClick}
-    >
+    <MotionButton onClick={onClick} {...commonProps}>
       {children}
-    </button>
+    </MotionButton>
   );
 }
