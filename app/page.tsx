@@ -65,7 +65,12 @@ export default function Home() {
           <ArrowButton type="right">For Her</ArrowButton>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -89,7 +94,12 @@ export default function Home() {
           <ArrowButton type="left">For Him</ArrowButton>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -113,7 +123,12 @@ export default function Home() {
           <ArrowButton type="right">Unisex</ArrowButton>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -201,7 +216,12 @@ export default function Home() {
           <div className="flex-grow border-t border-black" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -228,7 +248,12 @@ export default function Home() {
           <div className="flex-grow border-t border-black" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
           <ProductCardHome
             image={"/perfume_default.png"}
             name={"Perfume name"}
@@ -270,15 +295,15 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div>
-                <label className="text-xl">Name:</label>
-                <input className="w-full border-b py-2 focus:outline-none focus:ring-0" />
-              </div>
-              <div>
-                <label className="text-xl">Email:</label>
-                <input className="w-full border-b py-2 focus:outline-none focus:ring-0" />
-              </div>
+            <div className="space-y-8 text-lg">
+              <input
+                className="w-full border-b py-2 focus:outline-none focus:ring-0"
+                placeholder="Name"
+              />
+              <input
+                className="w-full border-b py-2 focus:outline-none focus:ring-0"
+                placeholder="E-mail"
+              />
             </div>
 
             <div className="flex justify-end">

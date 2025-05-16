@@ -26,14 +26,15 @@ export default function Signin() {
             orders anytime, all in one place.
           </p>
 
-          <div className="text-lg">
-            <label>Email:</label>
-            <input className="border w-full p-2 focus:outline-none focus:ring-0" />
-          </div>
-
-          <div className="text-lg">
-            <label>Password:</label>
-            <input className="border w-full p-2 focus:outline-none focus:ring-0" />
+          <div className="space-y-8 text-lg">
+            <input
+              className="border-b w-full py-2 focus:outline-none focus:ring-0"
+              placeholder="E-mail"
+            />
+            <input
+              className="border-b w-full py-2 focus:outline-none focus:ring-0"
+              placeholder="Password"
+            />
           </div>
 
           <Link href="" className="text-lg text-right">
