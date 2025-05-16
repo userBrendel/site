@@ -1,13 +1,15 @@
-"use client";
-
 import Image from "next/image";
 import PromoBar from "../../components/layout/PromoBar";
 import Button from "../../components/ui/FilledButton";
 import ArrowButton from "../../components/ui/ArrowButton";
 import ProductCardHome from "../../components/cards/ProductCardHome";
 import FilledButton from "../../components/ui/FilledButton";
+import { readAllProduct, readForHerProduct, readForHimProduct } from "./utils/default/readEntities";
 
-export default function Home() {
+export default async function Home() {
+    const { products: productsForHer, productsError: productsForHerError } = await readForHerProduct();
+    const { products: productsForHim, productsError: productsForHimError } = await readForHimProduct();
+
   return (
     <>
       {/* hero */}
@@ -66,26 +68,18 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
+          {productsForHer?.map((product) => {
+  return (
+    <ProductCardHome
+      key={product.id}
+      image={"/perfume_default.png"}
+      name={product.name}
+      price={product.price}
+    />
+  );
+})}
+
+
         </div>
 
         <br />
@@ -95,26 +89,16 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
+         {productsForHim?.map((product) => {
+  return (
+    <ProductCardHome
+      key={product.id}
+      image={"/perfume_default.png"}
+      name={product.name}
+      price={product.price}
+    />
+  );
+})}
         </div>
 
         <br />
