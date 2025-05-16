@@ -1,7 +1,10 @@
 import FilledButton from "@/components/ui/FilledButton";
 import React from "react";
+import { readProduct } from "../utils/default/readProduct";
 
-export default function Account() {
+export default async function Account() {
+  const { products, productsError } = await readProduct();
+
   return (
     <>
       <section className="mt-16 py-24 px-6 md:px-16 lg:px-48 space-y-8">
@@ -10,6 +13,20 @@ export default function Account() {
           <h1 className="font-bold text-3xl text-center">Hello, John</h1>
           <div className="flex-grow border-t border-black" />
         </div>
+
+        {products?.map((product) => (
+          <div key={product.id}>
+            <p>{product.id}</p>
+            <p>{product.name}</p>
+            <p>{product.price}</p>
+            <p>{product.concentration}</p>
+            <p>{product.offer}</p>
+            <p>{product.stock}</p>
+            <p>{product.reviews}</p>
+            <p>{product.gender}</p>
+            <p>{product.description}</p>
+          </div>
+        ))}
 
         <div>
           <p className="text-lg">First Name: John</p>
