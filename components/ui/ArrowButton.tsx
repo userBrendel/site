@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 type ArrowButtonProps = {
@@ -12,13 +11,13 @@ type ArrowButtonProps = {
   type: "left" | "right";
 };
 
-const AnimatedArrow = ({
+function AnimatedArrow({
   direction,
   isHovered,
 }: {
   direction: "left" | "right";
   isHovered: boolean;
-}) => {
+}) {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -33,9 +32,14 @@ const AnimatedArrow = ({
     hidden: {
       scaleX: 0,
       transformOrigin: direction === "left" ? "right center" : "left center",
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
     visible: {
       scaleX: 1,
+      transformOrigin: direction === "left" ? "right center" : "left center",
       transition: {
         duration: 0.6,
         ease: "easeOut",
@@ -73,7 +77,7 @@ const AnimatedArrow = ({
       />
     </motion.svg>
   );
-};
+}
 
 import { useState } from "react";
 

@@ -29,7 +29,7 @@ export default function SideBarNav({
         </button>
       </div>
 
-      <div className="flex flex-col space-y-6 p-6 pt-2 text-black text-lg">
+      <div className="flex flex-col space-y-8 p-6 pt-2 text-black text-lg">
         <Link href="/" onClick={closePanels} className={hoverClass}>
           Home
         </Link>

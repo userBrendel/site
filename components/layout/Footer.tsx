@@ -25,12 +25,12 @@ export default function Footer() {
 
         <div className="flex flex-col">
           <h1 className="font-bold">Follow Us</h1>
-          <Link href="tiktok.com" target="_blank">
+          <a href="https://www.tiktok.com" target="_blank">
             TikTok
-          </Link>
-          <Link href="facebook.com" target="_blank">
+          </a>
+          <a href="https://www.facebook.com" target="_blank">
             Facebook
-          </Link>
+          </a>
         </div>
 
         <div className="flex flex-col">
@@ -45,10 +45,15 @@ export default function Footer() {
           <Link href="#">Payment</Link>
         </div>
 
-        <div className="text-center">
+        <div>
           <h1 className="font-bold ">Stay Connected</h1>
-          <input className="p-1 border w-32" placeholder="Enter Email" />
-          <button className="border p-1">Subscribe</button>
+          <div className="text-center ">
+            <input
+              className="p-1 border w-32 focus:outline-none focus:ring-0"
+              placeholder="Enter Email"
+            />
+            <button className="border p-1">Subscribe</button>
+          </div>
         </div>
       </section>
 

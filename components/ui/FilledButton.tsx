@@ -11,7 +11,7 @@ type FilledButtonProps = {
 };
 
 const MotionButton = motion.button;
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 export default function FilledButton({
   children,

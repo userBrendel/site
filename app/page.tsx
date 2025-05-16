@@ -141,14 +141,16 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div className="space-y-12">
-            <Image
-              src="/scent_studio1.png"
-              alt="about"
-              priority
-              width={450}
-              height={450}
-              className="object-contain w-full max-w-sm"
-            />
+            <div className="flex justify-center md:justify-start">
+              <Image
+                src="/scent_studio1.png"
+                alt="about"
+                priority
+                width={450}
+                height={450}
+                className="object-contain w-full max-w-md"
+              />
+            </div>
 
             <div className="space-y-2 text-center md:text-left">
               <h2 className="text-xl font-bold">Vision</h2>

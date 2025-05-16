@@ -77,15 +77,15 @@ export default function SideBarBag({
           <div>
             <div className="flex justify-between">
               <h1 className="text-2xl">Subtotal:</h1>
-              <h1 className="text-2xl font-bold">Dhs. 00.00</h1>
+              <h1 className="text-2xl font-bold">AED 00.00</h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-2xl">Shipping:</h1>
-              <h1 className="text-2xl font-bold">Dhs. 00.00</h1>
+              <h1 className="text-2xl font-bold">AED 00.00</h1>
             </div>
             <div className="flex justify-between">
               <h1 className="text-2xl">Total:</h1>
-              <h1 className="text-2xl font-bold">Dhs. 00.00</h1>
+              <h1 className="text-2xl font-bold">AED 00.00</h1>
             </div>
           </div>
 

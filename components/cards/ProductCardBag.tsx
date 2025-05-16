@@ -1,5 +1,4 @@
-import { Trash, X } from "lucide-react";
-import FilledButton from "../ui/FilledButton";
+import { Trash } from "lucide-react";
 
 type ProductCardBagProps = {
   image: string;
@@ -40,7 +39,7 @@ export default function ProductCardBag({
         <div className="sm:flex justify-between items-center w-full">
           <p className="text-xl font-semibold">{name}</p>
           <p className="text-gray-700 text-sm whitespace-nowrap">
-            Dhs. {price}.00
+            AED {price}.00
           </p>
         </div>
 

@@ -28,12 +28,12 @@ export default function Signin() {
 
           <div className="text-lg">
             <label>Email:</label>
-            <input className="border w-full p-2" />
+            <input className="border w-full p-2 focus:outline-none focus:ring-0" />
           </div>
 
           <div className="text-lg">
             <label>Password:</label>
-            <input className="border w-full p-2" />
+            <input className="border w-full p-2 focus:outline-none focus:ring-0" />
           </div>
 
           <Link href="" className="text-lg text-right">
