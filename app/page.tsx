@@ -5,6 +5,7 @@ import PromoBar from "./components/PromoBar";
 import Button from "./components/Button/FilledButton";
 import ArrowButton from "./components/Button/ArrowButton";
 import ProductCardHome from "./components/ProductCard/ProductCardHome";
+import FilledButton from "./components/Button/FilledButton";
 
 export default function Home() {
   return (
@@ -52,9 +53,9 @@ export default function Home() {
       {/* popular fragrance */}
       <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
-          <h2 className="font-bold text-3xl text-center whitespace-nowrap">
+          <h1 className="font-bold text-3xl text-center whitespace-nowrap">
             Categories
-          </h2>
+          </h1>
           <div className="flex-grow border-t border-black-300" />
         </div>
 
@@ -135,26 +136,144 @@ export default function Home() {
       <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
           <div className="flex-grow border-t border-black-300" />
-          <h2 className="font-bold text-3xl text-center whitespace-nowrap">
+          <h1 className="font-bold text-3xl text-center whitespace-nowrap">
             About Us
-          </h2>
+          </h1>
         </div>
 
-        <div className="flex">
-          <div>asdadad</div>
-          <div>asd</div>
+        <div>
+          <div className="grid grid-cols-2">
+            <div className="">
+            <Image
+            src="/AboutUs.png"
+            alt="about"
+            priority
+            width={450}
+            height={450}
+            className="object-contain"
+            />
+            <h1 className="text-2xl font-bold mt-10">Vision</h1>
+            <p className="text-2xl">To awaken the senses and elevate everyday moments through the transformative power of fragrance, crafting a world where scent becomes a universal language of beauty, emotion, and identity.</p></div>
+
+            <div className="space-y-4">
+            <h1 className="font-bold text-2xl ">
+            Let There Be Fragrance
+            </h1>
+            <p className="text-2xl">
+            In the beginning, when the world was void and formless, a whisper of creation filled the air—Let There Be Fragrance.</p> 
+            
+            <h1 className="text-2xl font-bold mt-50">Mission</h1>
+            <p className="text-2xl">At Let There Be Fragrance, our mission is to create captivating, high-quality scents that tell stories, spark memories, and celebrate individuality. </p>
+            
+            
+
+            <div className="flex justify-end mt-25"><Image
+            src="/AboutUs2.png"
+            alt="about"
+            priority
+            width={400}
+            height={400}
+            className="object-contain"/></div>
+                       
+            </div>
+          </div>   
+          <div>
+
+          </div>
         </div>
       </section>
 
       {/* new collection */}
       <section className="py-24 px-16 lg:px-48 space-y-8">
         <div className="flex items-center gap-8">
-          <h2 className="font-bold text-3xl text-center whitespace-nowrap">
+          <h1 className="font-bold text-3xl text-center whitespace-nowrap">
             New Collection
-          </h2>
+          </h1>
           <div className="flex-grow border-t border-black-300" />
         </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+        </div>
       </section>
+
+      {/* best seller */}
+      <section className="py-24 px-16 lg:px-48 space-y-8">
+        <div className="flex items-center gap-8">
+           <div className="flex-grow border-t border-black-300" />
+          <h1 className="font-bold text-3xl text-center whitespace-nowrap">
+            Best Seller
+          </h1>
+          <div className="flex-grow border-t border-black-300" />
+        </div>
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+          <ProductCardHome
+            image={"/perfume_default.png"}
+            name={"Perfume name"}
+            price={255}
+          />
+        </div>
+        </section>
+
+        <section className="py-24 px-16 lg:px-48 space-y-8 border grid grid-cols-2 gap-10">
+           
+           <Image
+            src="/Boat.png"
+            alt="about"
+            priority
+            width={450}
+            height={450}
+            className="object-contain"
+            />
+
+            <div>
+              <h1 className="font-bold text-3xl text-center">DISCOVER MORE OF LTBF</h1>
+              <p className="text-center mt-10 mb-30">In the beginning, when the world was void and formless, a whisper of creation filled the air—Let There Be Fragrance.</p>
+
+              
+              <label className="text-2xl" >Name:</label> <br />
+              <input type="text" className="mb-20 w-full border-b"></input><br />
+              
+              
+              <label className="text-2xl">Email:</label> <br />
+              <input type="text" className="w-full border-b mb-20"></input>
+              <div className="flex justify-end">
+              <FilledButton>Subscribe</FilledButton>
+              </div>
+            </div>
+
+
+        
+        </section>
+
+        
+
+
+
     </>
   );
 }
