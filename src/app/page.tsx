@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import PromoBar from "../components/layout/PromoBar";
-import Button from "../components/ui/FilledButton";
-import ArrowButton from "../components/ui/ArrowButton";
-import ProductCardHome from "../components/cards/ProductCardHome";
-import FilledButton from "../components/ui/FilledButton";
+import PromoBar from "../../components/layout/PromoBar";
+import Button from "../../components/ui/FilledButton";
+import ArrowButton from "../../components/ui/ArrowButton";
+import ProductCardHome from "../../components/cards/ProductCardHome";
+import FilledButton from "../../components/ui/FilledButton";
 
 export default function Home() {
   return (
