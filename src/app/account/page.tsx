@@ -1,6 +1,5 @@
-import FilledButton from "@/components/ui/FilledButton";
+import FilledButton from "@/src/app/components/ui/FilledButton";
 import React from "react";
-import { readAllProduct } from "../utils/default/readEntities";
 
 export default async function Account() {
   return (

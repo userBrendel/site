@@ -1,15 +1,18 @@
 import Image from "next/image";
-import PromoBar from "../../components/layout/PromoBar";
-import Button from "../../components/ui/FilledButton";
-import ArrowButton from "../../components/ui/ArrowButton";
-import ProductCardHome from "../../components/cards/ProductCardHome";
-import FilledButton from "../../components/ui/FilledButton";
-import { readAllProduct, readForHerProduct, readForHimProduct, readUniSexProduct } from "./utils/default/readEntities";
+import PromoBar from "./components/layout/PromoBar";
+import Button from "./components/ui/FilledButton";
+import ArrowButton from "./components/ui/ArrowButton";
+import ProductCardHome from "./components/cards/ProductCardHome";
+import FilledButton from "./components/ui/FilledButton";
+import { readGenderProduct } from "./utils/default/readEntities";
 
 export default async function Home() {
-    const { products: productsForHer, productsError: productsForHerError } = await readForHerProduct();
-    const { products: productsForHim, productsError: productsForHimError } = await readForHimProduct();
-    const { products: productsUnisex, productsError: productsUnisexError } = await readUniSexProduct();
+  const { products: productsForHer, productsError: productsForHerError } =
+    await readGenderProduct("Her");
+  const { products: productsForHim, productsError: productsForHimError } =
+    await readGenderProduct("Him");
+  const { products: productsUnisex, productsError: productsUnisexError } =
+    await readGenderProduct("Unisex");
 
   return (
     <>
@@ -71,11 +74,14 @@ export default async function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
           {productsForHer?.map((product) => {
             return (
-             <ProductCardHome
-               key={product.id}
-               image={"/perfume_default.png"}
-               name={product.name}
-               price={product.price}/>);})}
+              <ProductCardHome
+                key={product.id}
+                image={"/perfume_default.png"}
+                name={product.name}
+                price={product.price}
+              />
+            );
+          })}
         </div>
 
         <br />
@@ -85,13 +91,16 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-         {productsForHim?.map((product) => {
-          return (
-           <ProductCardHome
-            key={product.id}
-            image={"/perfume_default.png"}
-            name={product.name}
-            price={product.price}/>);})}
+          {productsForHim?.map((product) => {
+            return (
+              <ProductCardHome
+                key={product.id}
+                image={"/perfume_default.png"}
+                name={product.name}
+                price={product.price}
+              />
+            );
+          })}
         </div>
 
         <br />
@@ -102,12 +111,15 @@ export default async function Home() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
           {productsUnisex?.map((product) => {
-          return (
-           <ProductCardHome
-            key={product.id}
-            image={"/perfume_default.png"}
-            name={product.name}
-            price={product.price}/>);})}      
+            return (
+              <ProductCardHome
+                key={product.id}
+                image={"/perfume_default.png"}
+                name={product.name}
+                price={product.price}
+              />
+            );
+          })}
         </div>
       </section>
 
