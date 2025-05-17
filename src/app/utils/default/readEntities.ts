@@ -8,6 +8,7 @@ export async function readAllProduct() {
     const { data: products, error: productsError } = await supabase
       .from("Product")
       .select("*");
+    
 
     if (productsError) {
       throw new Error(productsError.message);
@@ -27,7 +28,9 @@ export async function readGenderProduct(gender: string) {
     const { data: products, error: productsError } = await supabase
       .from("Product")
       .select("*")
+      .limit(4)
       .eq("gender", gender);
+      
 
     if (productsError) {
       throw new Error(productsError.message);
