@@ -17,9 +17,9 @@ export default async function Home() {
   return (
     <>
       {/* hero */}
-      <section className="w-full md:h-screen text-center grid grid-cols-1 md:grid-cols-2   mt-16 md:mt-0 overflow-hidden">
+      <section className="w-full md:h-screen text-center grid grid-cols-1 md:grid-cols-2   mt-16  md:mt-0 overflow-hidden">
         {/* left */}
-        <div className="w-full h-screen md:h-full  px-6 md:pt-24 md:px-14 flex flex-col gap-10 items-center justify-center">
+        <div className="w-full h-screen md:h-full px-6 md:pt-24 md:px-14 flex flex-col gap-10 items-center justify-center">
           <h1 className="text-3xl">
             In the beginning, when the world was void and formless, a whisper of
             creation filled the air—Let There Be Fragrance.
