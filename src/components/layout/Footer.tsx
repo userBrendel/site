@@ -46,14 +46,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <h1 className="font-bold ">Stay Connected</h1>
-          <div className="text-center ">
-            <input
-              className="p-1 border w-32 focus:outline-none focus:ring-0"
-              placeholder="Enter Email"
-            />
-            <button className="border p-1">Subscribe</button>
-          </div>
+          <h1 className="font-bold">Stay Connected</h1>
+          <Link href="#">Subscribe</Link>
         </div>
       </section>
 

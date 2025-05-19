@@ -3,17 +3,17 @@
 import FilledButton from "@/src/components/ui/FilledButton";
 import ProductCardProduct from "./ProductCardProduct";
 import { useState } from "react";
-import { Minus, Plus, Trash } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 type ProductClientProps = {
   product: any;
-  onClickTrash?: () => void;
+  onClickHeart?: () => void;
   onClickAddToBag?: () => void;
 };
 
 export default function ProductClient({
   product,
-  onClickTrash,
+  onClickHeart,
   onClickAddToBag,
 }: ProductClientProps) {
   const [quantity, setQuantity] = useState(1);
@@ -30,9 +30,10 @@ export default function ProductClient({
   const sizes = ["50 ml", "80 ml", "100 ml"];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 place-items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
       <ProductCardProduct
         image={product.image ? product.image : "/perfume_default.png"}
+        onClickHeart={onClickHeart}
       />
 
       <div className="space-y-12">
@@ -75,7 +76,7 @@ export default function ProductClient({
             </div>
           </div>
 
-          <div className="flex gap-12 items-center">
+          <div className="flex gap-4 items-center">
             <span>Quantity: {quantity}</span>
             <div className="flex gap-2">
               <button
@@ -93,16 +94,12 @@ export default function ProductClient({
                 <Plus size={16} />
               </button>
             </div>
-            <button
-              onClick={onClickTrash}
-              className="border p-1 hover:shadow-lg hover:scale-105 transition-hover duration-300"
-            >
-              <Trash size={16} />
-            </button>
           </div>
 
           <div className="flex items-center gap-8">
-            <FilledButton size="text-2xl">Add To Bag</FilledButton>
+            <FilledButton size="text-2xl" onClick={onClickAddToBag}>
+              Add To Bag
+            </FilledButton>
             <div className="text-xl font-semibold">AED {product.price}.00</div>
           </div>
         </div>

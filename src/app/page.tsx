@@ -4,42 +4,37 @@ import Button from "../components/ui/FilledButton";
 import ArrowButton from "../components/ui/ArrowButton";
 import ProductCardHome from "../components/cards/ProductCardHome";
 import FilledButton from "../components/ui/FilledButton";
-import { readProduct } from "../utils/default/readEntities";
+import { filterProducts, sortProducts } from "./actions";
 
 export default async function Home() {
   const { products: productsForHer, productsError: productsForHerError } =
-    await readProduct({
-      filterColumn: "gender",
-      filterValue: "Her",
-      limit: 4,
+    await filterProducts({
+      column: "gender",
+      value: "Her",
     });
   const { products: productsForHim, productsError: productsForHimError } =
-    await readProduct({
-      filterColumn: "gender",
-      filterValue: "Him",
-      limit: 4,
+    await filterProducts({
+      column: "gender",
+      value: "Him",
     });
   const { products: productsUnisex, productsError: productsUnisexError } =
-    await readProduct({
-      filterColumn: "gender",
-      filterValue: "Unisex",
-      limit: 4,
+    await filterProducts({
+      column: "gender",
+      value: "Unisex",
     });
   const {
     products: productsNewCollection,
     productsError: productsNewCollectionError,
-  } = await readProduct({
-    filterColumn: "metadata->>collection",
-    filterValue: "2025",
-    limit: 4,
+  } = await filterProducts({
+    column: "metadata->>collection",
+    value: "2025",
   });
   const {
     products: productsBestSeller,
     productsError: productsBestSellerError,
-  } = await readProduct({
-    orderBy: "sales",
+  } = await sortProducts({
+    column: "sales",
     ascending: false,
-    limit: 4,
   });
 
   return (
@@ -66,7 +61,7 @@ export default async function Home() {
         {/* right */}
         <div
           className="w-full h-screen md:h-screen px-6 md:pb-24 md:px-14 flex flex-col gap-10 items-center justify-center md:justify-end bg-cover bg-center"
-          style={{ backgroundImage: "url('clouds.png')" }}
+          style={{ backgroundImage: "url('/clouds.png')" }}
         >
           <div>
             <h1 className="text-4xl">
@@ -74,7 +69,7 @@ export default async function Home() {
             </h1>
             <p className="text-xl">A sweet aroma, a reflection of His love.</p>
           </div>
-          <Button size="xl" href="/shop">
+          <Button size="xl" href="/catalogue">
             Shop Now
           </Button>
         </div>

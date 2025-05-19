@@ -42,13 +42,7 @@ export default function ProductCardWishlist({
           style={{
             backgroundImage: `url(${image ? image : "/perfume_default.png"})`,
           }}
-        >
-          <Heart
-            onClick={onClickHeart}
-            size={24}
-            className="text-black cursor-pointer"
-          />
-        </div>
+        ></div>
 
         <div className="flex gap-4 items-center">
           <span className="text-sm w-6 text-center">x{quantity}</span>

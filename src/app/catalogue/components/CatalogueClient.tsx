@@ -10,24 +10,20 @@ type CatalogueClientProps = {
 };
 
 export default function CatalogueClient({ products }: CatalogueClientProps) {
-  const search = useSearchParams();
+  const searchParams = useSearchParams();
   const router = useRouter();
 
-  const initialSort = search.get("sort") ?? "a-z";
-  const initialFilter = search.get("filter") ?? "all";
-
-  const [sortBy, setSortBy] = useState(initialSort);
-  const [filterBy, setFilterBy] = useState(initialFilter);
+  const [sortBy, setSortBy] = useState("a-z");
+  const [filterBy, setFilterBy] = useState("all");
   const [filtered, setFiltered] = useState(products);
 
   useEffect(() => {
-    const params = new URLSearchParams();
+    const sort = searchParams.get("sort") ?? "a-z";
+    const filter = searchParams.get("filter") ?? "all";
 
-    if (sortBy !== "a-z") params.set("sort", sortBy);
-    if (filterBy !== "all") params.set("filter", filterBy);
-
-    router.replace(`?${params.toString()}`, { scroll: false });
-  }, [sortBy, filterBy]);
+    setSortBy(sort.toLowerCase());
+    setFilterBy(filter.toLowerCase());
+  }, [searchParams]);
 
   useEffect(() => {
     let result = [...products];
@@ -36,7 +32,7 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
       result = result.filter((p) => {
         const gender = p.gender?.toLowerCase().trim();
         const concentration = p.concentration?.toLowerCase().trim();
-        const collection = p.metadata.collection?.toLowerCase().trim();
+        const collection = p.metadata?.collection?.toLowerCase().trim();
 
         if (filterBy === "edp") return concentration === "eau de parfum";
         if (filterBy === "edt") return concentration === "eau de toilette";
@@ -44,7 +40,7 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
         if (filterBy === "for him") return gender === "him";
         if (filterBy === "unisex") return gender === "unisex";
         if (filterBy === "2025 collection") return collection === "2025";
-        return false;
+        return true;
       });
     }
 
@@ -69,6 +65,18 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
     setFiltered(result);
   }, [sortBy, filterBy, products]);
 
+  const handleSortChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", value);
+    router.push(`/catalogue?${params.toString()}`);
+  };
+
+  const handleFilterChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("filter", value);
+    router.push(`/catalogue?${params.toString()}`);
+  };
+
   return (
     <>
       <div className="flex gap-8 justify-end">
@@ -78,7 +86,7 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
             <select
               className="w-full border text-sm p-2 pr-10 focus:outline-none focus:ring-0 appearance-none"
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={(e) => handleSortChange(e.target.value)}
             >
               <option value="a-z">A-Z</option>
               <option value="z-a">Z-A</option>
@@ -99,7 +107,7 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
             <select
               className="w-full border text-sm p-2 pr-10 focus:outline-none focus:ring-0 appearance-none"
               value={filterBy}
-              onChange={(e) => setFilterBy(e.target.value)}
+              onChange={(e) => handleFilterChange(e.target.value)}
             >
               <option value="all">All</option>
               <option value="2025 collection">2025 Collection</option>
