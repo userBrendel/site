@@ -4,15 +4,43 @@ import Button from "../components/ui/FilledButton";
 import ArrowButton from "../components/ui/ArrowButton";
 import ProductCardHome from "../components/cards/ProductCardHome";
 import FilledButton from "../components/ui/FilledButton";
-import { readGenderProduct } from "../utils/default/readEntities";
+import { readProduct } from "../utils/default/readEntities";
 
 export default async function Home() {
   const { products: productsForHer, productsError: productsForHerError } =
-    await readGenderProduct("Her");
+    await readProduct({
+      filterColumn: "gender",
+      filterValue: "Her",
+      limit: 4,
+    });
   const { products: productsForHim, productsError: productsForHimError } =
-    await readGenderProduct("Him");
+    await readProduct({
+      filterColumn: "gender",
+      filterValue: "Him",
+      limit: 4,
+    });
   const { products: productsUnisex, productsError: productsUnisexError } =
-    await readGenderProduct("Unisex");
+    await readProduct({
+      filterColumn: "gender",
+      filterValue: "Unisex",
+      limit: 4,
+    });
+  const {
+    products: productsNewCollection,
+    productsError: productsNewCollectionError,
+  } = await readProduct({
+    filterColumn: "metadata->>collection",
+    filterValue: "2025",
+    limit: 4,
+  });
+  const {
+    products: productsBestSeller,
+    productsError: productsBestSellerError,
+  } = await readProduct({
+    orderBy: "sales",
+    ascending: false,
+    limit: 4,
+  });
 
   return (
     <>
@@ -68,45 +96,49 @@ export default async function Home() {
         <br />
 
         <div className="flex justify-start">
-          <ArrowButton type="right">For Her</ArrowButton>
+          <ArrowButton type="right" href="/catalogue?filter=for+her">
+            For Her
+          </ArrowButton>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsForHer?.map((product) => {
-            return (
-              <ProductCardHome
-                key={product.id}
-                image={"/perfume_default.png"}
-                name={product.name}
-                price={product.price}
-              />
-            );
-          })}
+          {productsForHer?.map((product) => (
+            <ProductCardHome
+              key={product.id}
+              image={"/perfume_default.png"}
+              name={product.name}
+              price={product.price}
+              href={`/product/${product.id}`}
+            />
+          ))}
         </div>
 
         <br />
 
-        <div className="text-right">
-          <ArrowButton type="left">For Him</ArrowButton>
+        <div className="flex justify-end">
+          <ArrowButton type="left" href="/catalogue?filter=for+him">
+            For Him
+          </ArrowButton>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsForHim?.map((product) => {
-            return (
-              <ProductCardHome
-                key={product.id}
-                image={"/perfume_default.png"}
-                name={product.name}
-                price={product.price}
-              />
-            );
-          })}
+          {productsForHim?.map((product) => (
+            <ProductCardHome
+              key={product.id}
+              image={"/perfume_default.png"}
+              name={product.name}
+              price={product.price}
+              href={`/product/${product.id}`}
+            />
+          ))}
         </div>
 
         <br />
 
-        <div>
-          <ArrowButton type="right">Unisex</ArrowButton>
+        <div className="flex justify-start">
+          <ArrowButton type="right" href="/catalogue?filter=unisex">
+            Unisex
+          </ArrowButton>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
@@ -117,6 +149,7 @@ export default async function Home() {
                 image={"/perfume_default.png"}
                 name={product.name}
                 price={product.price}
+                href={`/product/${product.id}`}
               />
             );
           })}
@@ -193,26 +226,15 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
+          {productsNewCollection?.map((product) => (
+            <ProductCardHome
+              key={product.id}
+              image={"/perfume_default.png"}
+              name={product.name}
+              price={product.price}
+              href={`/product/${product.id}`}
+            />
+          ))}
         </div>
       </section>
 
@@ -225,26 +247,15 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
-          <ProductCardHome
-            image={"/perfume_default.png"}
-            name={"Perfume name"}
-            price={255}
-          />
+          {productsBestSeller?.map((product) => (
+            <ProductCardHome
+              key={product.id}
+              image={"/perfume_default.png"}
+              name={product.name}
+              price={product.price}
+              href={`/product/${product.id}`}
+            />
+          ))}
         </div>
       </section>
 

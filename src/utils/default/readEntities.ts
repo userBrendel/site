@@ -2,33 +2,36 @@
 
 import { createClient } from "../supabase/server";
 
-export async function readAllProduct() {
+export async function readProduct({
+  filterColumn,
+  filterValue,
+  orderBy,
+  ascending = true,
+  limit,
+}: {
+  filterColumn?: string;
+  filterValue?: string;
+  orderBy?: string;
+  ascending?: boolean;
+  limit?: number;
+}) {
   try {
     const supabase = await createClient();
-    const { data: products, error: productsError } = await supabase
-      .from("Product")
-      .select("*");
+    let query = supabase.from("Product").select("*");
 
-    if (productsError) {
-      throw new Error(productsError.message);
+    if (filterColumn && filterValue !== undefined) {
+      query = query.eq(filterColumn, filterValue);
     }
 
-    return { products };
-  } catch (e) {
-    const errorMessage = (e as Error).message;
-    console.error(errorMessage);
-    return { productsError: { message: errorMessage } };
-  }
-}
+    if (orderBy) {
+      query = query.order(orderBy, { ascending });
+    }
 
-export async function readGenderProduct(gender: string) {
-  try {
-    const supabase = await createClient();
-    const { data: products, error: productsError } = await supabase
-      .from("Product")
-      .select("*")
-      .limit(4)
-      .eq("gender", gender);
+    if (limit) {
+      query = query.limit(limit);
+    }
+
+    const { data: products, error: productsError } = await query;
 
     if (productsError) {
       throw new Error(productsError.message);

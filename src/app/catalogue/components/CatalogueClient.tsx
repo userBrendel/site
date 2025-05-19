@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ProductCardHome from "../../../components/cards/ProductCardHome";
+import { useSearchParams, useRouter } from "next/navigation";
 
 type CatalogueClientProps = {
   products: any[];
@@ -9,37 +10,44 @@ type CatalogueClientProps = {
 };
 
 export default function CatalogueClient({ products }: CatalogueClientProps) {
-  const [sortBy, setSortBy] = useState("a-z");
-  const [filterBy, setFilterBy] = useState("all");
+  const search = useSearchParams();
+  const router = useRouter();
+
+  const initialSort = search.get("sort") ?? "a-z";
+  const initialFilter = search.get("filter") ?? "all";
+
+  const [sortBy, setSortBy] = useState(initialSort);
+  const [filterBy, setFilterBy] = useState(initialFilter);
   const [filtered, setFiltered] = useState(products);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    if (sortBy !== "a-z") params.set("sort", sortBy);
+    if (filterBy !== "all") params.set("filter", filterBy);
+
+    router.replace(`?${params.toString()}`, { scroll: false });
+  }, [sortBy, filterBy]);
 
   useEffect(() => {
     let result = [...products];
 
-    // FILTER
     if (filterBy !== "all") {
       result = result.filter((p) => {
         const gender = p.gender?.toLowerCase().trim();
         const concentration = p.concentration?.toLowerCase().trim();
-        const collection = p.metadata.collection.toLowerCase().trim();
+        const collection = p.metadata.collection?.toLowerCase().trim();
 
-        if (filterBy === "edp") {
-          return concentration === "eau de parfum";
-        } else if (filterBy === "edt") {
-          return concentration === "eau de toilette";
-        } else if (filterBy === "for her") {
-          return gender === "her";
-        } else if (filterBy === "for him") {
-          return gender === "him";
-        } else if (filterBy === "unisex") {
-          return gender === "unisex";
-        } else if (filterBy === "2025 collection") {
-          return collection === "2025";
-        }
+        if (filterBy === "edp") return concentration === "eau de parfum";
+        if (filterBy === "edt") return concentration === "eau de toilette";
+        if (filterBy === "for her") return gender === "her";
+        if (filterBy === "for him") return gender === "him";
+        if (filterBy === "unisex") return gender === "unisex";
+        if (filterBy === "2025 collection") return collection === "2025";
+        return false;
       });
     }
 
-    // SORT
     switch (sortBy) {
       case "a-z":
         result.sort((a, b) => a.name.localeCompare(b.name));
@@ -118,6 +126,7 @@ export default function CatalogueClient({ products }: CatalogueClientProps) {
               image={"/perfume_default.png"}
               name={product.name}
               price={product.price}
+              href={`/product/${product.id}`}
             />
           );
         })}

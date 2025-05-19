@@ -1,8 +1,8 @@
-import { readAllProduct } from "../../utils/default/readEntities";
+import { readProduct } from "../../utils/default/readEntities";
 import CatalogueClient from "./components/CatalogueClient";
 
 export default async function Catalogue() {
-  const { products, productsError } = await readAllProduct();
+  const { products, productsError } = await readProduct({});
 
   return (
     <section className="mt-16 py-24 px-6 md:px-16 lg:px-48 space-y-8">

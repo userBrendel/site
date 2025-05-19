@@ -39,7 +39,9 @@ export default function ProductCardWishlist({
       <div className="flex flex-col items-center space-y-2">
         <div
           className="w-32 h-32 bg-cover bg-center border flex justify-end items-start p-2 shrink-0"
-          style={{ backgroundImage: `url(${image})` }}
+          style={{
+            backgroundImage: `url(${image ? image : "/perfume_default.png"})`,
+          }}
         >
           <Heart
             onClick={onClickHeart}

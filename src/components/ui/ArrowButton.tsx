@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 type ArrowButtonProps = {
   children: string;
-  href?: string;
+  href: string;
   onClick?: () => void;
   type: "left" | "right";
 };

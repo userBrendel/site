@@ -13,7 +13,9 @@ export default function ProductCardProduct({
     <section className="flex flex-col gap-4 justify-center items-center w-full max-w-100">
       <div
         className="w-full aspect-square bg-cover bg-center border p-4 flex justify-end"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{
+          backgroundImage: `url(${image ? image : "/perfume_default.png"})`,
+        }}
       >
         <Heart
           onClick={onClick}
