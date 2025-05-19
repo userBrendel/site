@@ -1,4 +1,4 @@
-import FilledButton from "@/src/app/components/ui/FilledButton";
+import FilledButton from "@/src/components/ui/FilledButton";
 import React from "react";
 
 export default async function Account() {

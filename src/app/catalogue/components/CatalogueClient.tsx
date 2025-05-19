@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ProductCardHome from "../../components/cards/ProductCardHome";
+import ProductCardHome from "../../../components/cards/ProductCardHome";
 
 type CatalogueClientProps = {
   products: any[];

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import PromoBar from "./components/layout/PromoBar";
-import Button from "./components/ui/FilledButton";
-import ArrowButton from "./components/ui/ArrowButton";
-import ProductCardHome from "./components/cards/ProductCardHome";
-import FilledButton from "./components/ui/FilledButton";
-import { readGenderProduct } from "./utils/default/readEntities";
+import PromoBar from "../components/layout/PromoBar";
+import Button from "../components/ui/FilledButton";
+import ArrowButton from "../components/ui/ArrowButton";
+import ProductCardHome from "../components/cards/ProductCardHome";
+import FilledButton from "../components/ui/FilledButton";
+import { readGenderProduct } from "../utils/default/readEntities";
 
 export default async function Home() {
   const { products: productsForHer, productsError: productsForHerError } =

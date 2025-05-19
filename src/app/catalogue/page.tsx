@@ -1,4 +1,4 @@
-import { readAllProduct } from "../utils/default/readEntities";
+import { readAllProduct } from "../../utils/default/readEntities";
 import CatalogueClient from "./components/CatalogueClient";
 
 export default async function Catalogue() {

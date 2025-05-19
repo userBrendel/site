@@ -1,3 +1,5 @@
+"use client";
+
 import { Heart, Minus, Plus, Trash } from "lucide-react";
 import { useState } from "react";
 import FilledButton from "../ui/FilledButton";
@@ -22,11 +24,11 @@ export default function ProductCardWishlist({
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState<string>("Select value");
 
-  function IncrementQuantity() {
+  function incrementQuantity() {
     setQuantity((q) => q + 1);
   }
 
-  function DecrementQuantity() {
+  function decrementQuantity() {
     setQuantity((q) => (q > 1 ? q - 1 : 1));
   }
 
@@ -50,7 +52,7 @@ export default function ProductCardWishlist({
           <span className="text-sm w-6 text-center">x{quantity}</span>
           <div className="flex gap-2 items-center">
             <button
-              onClick={DecrementQuantity}
+              onClick={decrementQuantity}
               className={`${
                 quantity === 1 && "pointer-events-none opacity-25"
               } border p-1 hover:shadow-lg hover:scale-105 transition-hover duration-300`}
@@ -58,7 +60,7 @@ export default function ProductCardWishlist({
               <Minus size={16} />
             </button>
             <button
-              onClick={IncrementQuantity}
+              onClick={incrementQuantity}
               className="border p-1 hover:shadow-lg hover:scale-105 transition-hover duration-300"
             >
               <Plus size={16} />
