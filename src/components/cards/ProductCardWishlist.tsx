@@ -8,21 +8,17 @@ type ProductCardWishlistProps = {
   image: string;
   name: string;
   price: number;
-  onClickHeart?: () => void;
-  onClickAddToCart?: () => void;
-  onClickTrash?: () => void;
 };
 
 export default function ProductCardWishlist({
   image,
   name,
   price,
-  onClickHeart,
-  onClickAddToCart,
-  onClickTrash,
 }: ProductCardWishlistProps) {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState<string>("Select value");
+
+  const sizes = ["50 ml", "80 ml", "100 ml"];
 
   function incrementQuantity() {
     setQuantity((q) => q + 1);
@@ -32,7 +28,11 @@ export default function ProductCardWishlist({
     setQuantity((q) => (q > 1 ? q - 1 : 1));
   }
 
-  const sizes = ["50 ml", "80 ml", "100 ml"];
+  function onClickHeart() {}
+
+  function onClickAddToBag() {}
+
+  function onClickTrash() {}
 
   return (
     <section className="flex gap-4 items-start w-full">
@@ -100,7 +100,7 @@ export default function ProductCardWishlist({
           </div>
         </div>
 
-        <FilledButton onClick={onClickAddToCart} size="sm">
+        <FilledButton onClick={onClickAddToBag} size="sm">
           Add To Bag
         </FilledButton>
       </div>

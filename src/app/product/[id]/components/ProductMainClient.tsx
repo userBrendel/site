@@ -32,8 +32,7 @@ export default function ProductMainClient({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 place-items-center">
       <ProductCardProduct
-        image={product.image ? product.image : "/perfume_default.png"}
-        onClickHeart={onClickHeart}
+        image={"/perfume_default.png"}
       />
 
       <div className="space-y-12">

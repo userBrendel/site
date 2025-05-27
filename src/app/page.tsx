@@ -5,6 +5,7 @@ import ArrowButton from "../components/ui/ArrowButton";
 import ProductCardHome from "../components/cards/ProductCardHome";
 import FilledButton from "../components/ui/FilledButton";
 import { filterProducts, sortProducts } from "./actions";
+import ErrorMessage from "../components/layout/ErrorMessage";
 
 export default async function Home() {
   const { products: productsForHer, productsError: productsForHerError } =
@@ -40,7 +41,7 @@ export default async function Home() {
   return (
     <>
       {/* hero */}
-      <section className="w-full md:h-screen text-center grid grid-cols-1 md:grid-cols-2 mt-16  md:mt-0 overflow-hidden">
+      <main className="w-full md:h-screen text-center grid grid-cols-1 md:grid-cols-2 mt-16  md:mt-0 overflow-hidden">
         {/* left */}
         <div className="w-full h-screen md:h-full px-6 md:pt-24 md:px-14 flex flex-col gap-10 items-center justify-center">
           <h1 className="text-3xl">
@@ -73,7 +74,7 @@ export default async function Home() {
             Shop Now
           </Button>
         </div>
-      </section>
+      </main>
 
       {/* marquee */}
       <PromoBar>
@@ -81,219 +82,251 @@ export default async function Home() {
         Offer • Shop Now
       </PromoBar>
 
-      {/* popular fragrance */}
-      <section className="py-24 px-6 md:px-16 lg:px-48 space-y-8">
-        <div className="flex items-center gap-4">
-          <h1 className="font-bold text-3xl text-center">Popular Fragrance</h1>
-          <div className="flex-grow border-t border-black" />
-        </div>
+      <main className="space-y-48 py-48">
+        {/* popular fragrance */}
+        {productsForHerError || productsForHimError || productsUnisexError ? (
+          <ErrorMessage>
+            There was an error displaying popular fragrances.
+            <br />
+            Error:{" "}
+            {productsForHerError?.message ||
+              productsForHimError?.message ||
+              productsUnisexError?.message}
+          </ErrorMessage>
+        ) : (
+          <section className="px-6 md:px-16 lg:px-48 space-y-8">
+            <div className="flex items-center gap-4">
+              <h1 className="font-bold text-3xl text-center">
+                Popular Fragrance
+              </h1>
+              <div className="flex-grow border-t border-black" />
+            </div>
 
-        <br />
+            <br />
 
-        <div className="flex justify-start">
-          <ArrowButton type="right" href="/catalogue?filter=for+her">
-            For Her
-          </ArrowButton>
-        </div>
+            <div className="flex justify-start">
+              <ArrowButton type="right" href="/catalogue?filter=for+her">
+                For Her
+              </ArrowButton>
+            </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsForHer?.map((product) => (
-            <ProductCardHome
-              key={product.id}
-              image={"/perfume_default.png"}
-              name={product.name}
-              price={product.price}
-              href={`/product/${product.id}`}
-            />
-          ))}
-        </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+              {productsForHer?.map((product) => (
+                <ProductCardHome
+                  key={product.id}
+                  image={"/perfume_default.png"}
+                  name={product.name}
+                  price={product.price}
+                  href={`/product/${product.id}`}
+                />
+              ))}
+            </div>
 
-        <br />
+            <br />
 
-        <div className="flex justify-end">
-          <ArrowButton type="left" href="/catalogue?filter=for+him">
-            For Him
-          </ArrowButton>
-        </div>
+            <div className="flex justify-end">
+              <ArrowButton type="left" href="/catalogue?filter=for+him">
+                For Him
+              </ArrowButton>
+            </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsForHim?.map((product) => (
-            <ProductCardHome
-              key={product.id}
-              image={"/perfume_default.png"}
-              name={product.name}
-              price={product.price}
-              href={`/product/${product.id}`}
-            />
-          ))}
-        </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+              {productsForHim?.map((product) => (
+                <ProductCardHome
+                  key={product.id}
+                  image={"/perfume_default.png"}
+                  name={product.name}
+                  price={product.price}
+                  href={`/product/${product.id}`}
+                />
+              ))}
+            </div>
 
-        <br />
+            <br />
 
-        <div className="flex justify-start">
-          <ArrowButton type="right" href="/catalogue?filter=unisex">
-            Unisex
-          </ArrowButton>
-        </div>
+            <div className="flex justify-start">
+              <ArrowButton type="right" href="/catalogue?filter=unisex">
+                Unisex
+              </ArrowButton>
+            </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsUnisex?.map((product) => {
-            return (
-              <ProductCardHome
-                key={product.id}
-                image={"/perfume_default.png"}
-                name={product.name}
-                price={product.price}
-                href={`/product/${product.id}`}
-              />
-            );
-          })}
-        </div>
-      </section>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+              {productsUnisex?.map((product) => {
+                return (
+                  <ProductCardHome
+                    key={product.id}
+                    image={"/perfume_default.png"}
+                    name={product.name}
+                    price={product.price}
+                    href={`/product/${product.id}`}
+                  />
+                );
+              })}
+            </div>
+          </section>
+        )}
 
-      {/* about us */}
-      <section className="py-24 px-6 md:px-16 lg:px-48 space-y-12">
-        <div className="flex items-center gap-4">
-          <div className="flex-grow border-t border-black" />
-          <h1 className="font-bold text-3xl text-center">About Us</h1>
-        </div>
+        {/* about us */}
+        <section className="px-6 md:px-16 lg:px-48 space-y-12">
+          <div className="flex items-center gap-4">
+            <div className="flex-grow border-t border-black" />
+            <h1 className="font-bold text-3xl text-center">About Us</h1>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-12">
-            <div className="flex justify-center md:justify-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-12">
+              <div className="flex justify-center md:justify-start">
+                <Image
+                  src="/scent_studio1.png"
+                  alt="about"
+                  priority
+                  width={450}
+                  height={450}
+                  className="object-contain w-full max-w-md"
+                />
+              </div>
+
+              <div className="space-y-2 text-center md:text-left">
+                <h2 className="text-xl font-bold">Vision</h2>
+                <p className="text-lg">
+                  To awaken the senses and elevate everyday moments through the
+                  transformative power of fragrance, crafting a world where
+                  scent becomes a universal language of beauty, emotion, and
+                  identity.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-20">
+              <div className="space-y-2 text-center md:text-right">
+                <h2 className="text-xl font-bold">Let There Be Fragrance</h2>
+                <p className="text-lg">
+                  In the beginning, when the world was void and formless, a
+                  whisper of creation filled the air—Let There Be Fragrance.
+                </p>
+              </div>
+
+              <div className="space-y-2 text-center md:text-right">
+                <h2 className="text-xl font-bold">Mission</h2>
+                <p className="text-lg">
+                  At Let There Be Fragrance, our mission is to create
+                  captivating, high-quality scents that tell stories, spark
+                  memories, and celebrate individuality.
+                </p>
+              </div>
+
+              <div className="flex justify-center md:justify-end">
+                <Image
+                  src="/scent_studio2.png"
+                  alt="about"
+                  priority
+                  width={400}
+                  height={400}
+                  className="object-contain w-full max-w-sm"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* new collection */}
+        {productsNewCollectionError ? (
+          <ErrorMessage>
+            There was an error displaying new collection fragrances.
+            <br />
+            Error: {productsNewCollectionError.message}
+          </ErrorMessage>
+        ) : (
+          <section className=" px-6 md:px-16 lg:px-48 space-y-8">
+            <div className="flex items-center gap-4">
+              <h1 className="font-bold text-3xl text-center">New Collection</h1>
+              <div className="flex-grow border-t border-black" />
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+              {productsNewCollection?.map((product) => (
+                <ProductCardHome
+                  key={product.id}
+                  image={"/perfume_default.png"}
+                  name={product.name}
+                  price={product.price}
+                  href={`/product/${product.id}`}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* best seller */}
+        {productsBestSellerError ? (
+          <ErrorMessage>
+            There was an error displaying best seller fragrances.
+            <br />
+            Error: {productsBestSellerError.message}
+          </ErrorMessage>
+        ) : (
+          <section className="px-6 md:px-16 lg:px-48 space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="flex-grow border-t border-black" />
+              <h1 className="font-bold text-3xl text-center">Best Seller</h1>
+              <div className="flex-grow border-t border-black" />
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
+              {productsBestSeller?.map((product) => (
+                <ProductCardHome
+                  key={product.id}
+                  image={"/perfume_default.png"}
+                  name={product.name}
+                  price={product.price}
+                  href={`/product/${product.id}`}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* discover more */}
+        <section className="pt-48 px-6 md:px-16 lg:px-48 space-y-8 border-t">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="flex justify-center">
               <Image
-                src="/scent_studio1.png"
+                src="/boats.png"
                 alt="about"
                 priority
                 width={450}
                 height={450}
-                className="object-contain w-full max-w-md"
-              />
-            </div>
-
-            <div className="space-y-2 text-center md:text-left">
-              <h2 className="text-xl font-bold">Vision</h2>
-              <p className="text-lg">
-                To awaken the senses and elevate everyday moments through the
-                transformative power of fragrance, crafting a world where scent
-                becomes a universal language of beauty, emotion, and identity.
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-20">
-            <div className="space-y-2 text-center md:text-right">
-              <h2 className="text-xl font-bold">Let There Be Fragrance</h2>
-              <p className="text-lg">
-                In the beginning, when the world was void and formless, a
-                whisper of creation filled the air—Let There Be Fragrance.
-              </p>
-            </div>
-
-            <div className="space-y-2 text-center md:text-right">
-              <h2 className="text-xl font-bold">Mission</h2>
-              <p className="text-lg">
-                At Let There Be Fragrance, our mission is to create captivating,
-                high-quality scents that tell stories, spark memories, and
-                celebrate individuality.
-              </p>
-            </div>
-
-            <div className="flex justify-center md:justify-end">
-              <Image
-                src="/scent_studio2.png"
-                alt="about"
-                priority
-                width={400}
-                height={400}
                 className="object-contain w-full max-w-sm"
               />
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* new collection */}
-      <section className="py-24 px-6 md:px-16 lg:px-48 space-y-8">
-        <div className="flex items-center gap-4">
-          <h1 className="font-bold text-3xl text-center">New Collection</h1>
-          <div className="flex-grow border-t border-black" />
-        </div>
+            <div className="space-y-12">
+              <div className="space-y-4 text-center">
+                <h1 className="font-bold text-3xl">DISCOVER MORE OF LTBF</h1>
+                <p className="text-lg">
+                  In the beginning, when the world was void and formless, a
+                  whisper of creation filled the air—Let There Be Fragrance.
+                </p>
+              </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsNewCollection?.map((product) => (
-            <ProductCardHome
-              key={product.id}
-              image={"/perfume_default.png"}
-              name={product.name}
-              price={product.price}
-              href={`/product/${product.id}`}
-            />
-          ))}
-        </div>
-      </section>
+              <div className="space-y-8 text-lg">
+                <input
+                  className="w-full border-b py-2 focus:outline-none focus:ring-0"
+                  placeholder="Name"
+                />
+                <input
+                  className="w-full border-b py-2 focus:outline-none focus:ring-0"
+                  placeholder="E-mail"
+                />
+              </div>
 
-      {/* best seller */}
-      <section className="py-24 px-6 md:px-16 lg:px-48 space-y-8">
-        <div className="flex items-center gap-4">
-          <div className="flex-grow border-t border-black" />
-          <h1 className="font-bold text-3xl text-center">Best Seller</h1>
-          <div className="flex-grow border-t border-black" />
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 place-items-center">
-          {productsBestSeller?.map((product) => (
-            <ProductCardHome
-              key={product.id}
-              image={"/perfume_default.png"}
-              name={product.name}
-              price={product.price}
-              href={`/product/${product.id}`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* discover more */}
-      <section className="py-24 px-6 md:px-16 lg:px-48 space-y-8  border-t">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex justify-center">
-            <Image
-              src="/boats.png"
-              alt="about"
-              priority
-              width={450}
-              height={450}
-              className="object-contain w-full max-w-sm"
-            />
-          </div>
-
-          <div className="space-y-12">
-            <div className="space-y-4 text-center">
-              <h1 className="font-bold text-3xl">DISCOVER MORE OF LTBF</h1>
-              <p className="text-lg">
-                In the beginning, when the world was void and formless, a
-                whisper of creation filled the air—Let There Be Fragrance.
-              </p>
-            </div>
-
-            <div className="space-y-8 text-lg">
-              <input
-                className="w-full border-b py-2 focus:outline-none focus:ring-0"
-                placeholder="Name"
-              />
-              <input
-                className="w-full border-b py-2 focus:outline-none focus:ring-0"
-                placeholder="E-mail"
-              />
-            </div>
-
-            <div className="flex justify-end">
-              <FilledButton size="xl">Subscribe</FilledButton>
+              <div className="flex justify-end">
+                <FilledButton size="xl">Subscribe</FilledButton>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   );
 }
