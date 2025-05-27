@@ -5,17 +5,17 @@ import ProductCardProduct from "./ProductCardProduct";
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 
-type ProductClientProps = {
+type ProductMainClientProps = {
   product: any;
   onClickHeart?: () => void;
   onClickAddToBag?: () => void;
 };
 
-export default function ProductClient({
+export default function ProductMainClient({
   product,
   onClickHeart,
   onClickAddToBag,
-}: ProductClientProps) {
+}: ProductMainClientProps) {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState<string>("Select value");
 
@@ -97,7 +97,7 @@ export default function ProductClient({
           </div>
 
           <div className="flex items-center gap-8">
-            <FilledButton size="text-2xl" onClick={onClickAddToBag}>
+            <FilledButton size="xl" onClick={onClickAddToBag}>
               Add To Bag
             </FilledButton>
             <div className="text-xl font-semibold">AED {product.price}.00</div>
