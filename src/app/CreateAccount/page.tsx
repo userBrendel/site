@@ -37,9 +37,14 @@ const CreateAccount = () => {
 
     const { email, password, firstName, lastName, phone, country, region, city, address } = formData;
 
-    const passwordRegex =
-      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    // Check for missing fields
+    if (!firstName || !lastName || !email || !password || !phone || !country || !region || !city || !address) {
+      setErrorMsg('Please fill in all required fields.');
+      return;
+    }
 
+    // Password complexity check
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     if (!passwordRegex.test(password)) {
       setErrorMsg(
         'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character.'
@@ -47,6 +52,7 @@ const CreateAccount = () => {
       return;
     }
 
+    // Sign up with Supabase
     const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
@@ -58,11 +64,15 @@ const CreateAccount = () => {
     }
 
     const userId = signUpData.user?.id;
+
+    // If email confirmation is required, user may be null
     if (!userId) {
-      setErrorMsg('User ID not found after sign-up.');
+      setSuccessMsg('Check your email to confirm your account before signing in.');
+      setTimeout(() => router.push('/signin'), 2500);
       return;
     }
 
+    // Save profile data
     const { error: profileError } = await supabase.from('profiles').insert([
       {
         id: userId,
@@ -81,8 +91,8 @@ const CreateAccount = () => {
       return;
     }
 
-    setSuccessMsg('Account created! Please check your email to confirm.');
-    setTimeout(() => router.push('/signin'), 3000);
+    setSuccessMsg('Account created! Redirecting to sign in...');
+    setTimeout(() => router.push('/signin'), 2500);
   };
 
   return (
@@ -135,9 +145,6 @@ const CreateAccount = () => {
           className="border-b py-2 focus:outline-none"
           required
         />
-        <p className="text-sm text-gray-500">
-          Password must be at least 8 characters, include one uppercase letter, one number, and one special character.
-        </p>
 
         <input
           type="text"
@@ -146,6 +153,7 @@ const CreateAccount = () => {
           value={formData.phone}
           onChange={handleChange}
           className="border-b py-2 focus:outline-none"
+          required
         />
 
         <input
@@ -155,9 +163,9 @@ const CreateAccount = () => {
           value={formData.country}
           onChange={handleChange}
           className="border-b py-2 focus:outline-none"
+          required
         />
 
-        {/* Region, City, Address */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
@@ -166,6 +174,7 @@ const CreateAccount = () => {
             value={formData.region}
             onChange={handleChange}
             className="border-b py-2 focus:outline-none"
+            required
           />
           <input
             type="text"
@@ -174,6 +183,7 @@ const CreateAccount = () => {
             value={formData.city}
             onChange={handleChange}
             className="border-b py-2 focus:outline-none"
+            required
           />
           <input
             type="text"
@@ -182,13 +192,25 @@ const CreateAccount = () => {
             value={formData.address}
             onChange={handleChange}
             className="border-b py-2 focus:outline-none col-span-1 md:col-span-2"
+            required
           />
         </div>
 
-        {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
-        {successMsg && <p className="text-green-600 text-sm">{successMsg}</p>}
+        {/* Error & Success Boxes */}
+        {errorMsg && (
+          <div className="bg-red-100 text-red-700 p-3 rounded-md text-sm">
+            {errorMsg}
+          </div>
+        )}
+        {successMsg && (
+          <div className="bg-green-100 text-green-700 p-3 rounded-md text-sm">
+            {successMsg}
+          </div>
+        )}
 
-        <FilledButton size="lg">Create Account</FilledButton>
+        <FilledButton size="lg" type="submit">
+          Create Account
+        </FilledButton>
 
         <p className="text-sm text-center text-gray-500">
           Already have an account?{' '}
