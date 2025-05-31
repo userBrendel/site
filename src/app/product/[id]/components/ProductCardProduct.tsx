@@ -2,13 +2,11 @@ import { Heart } from "lucide-react";
 
 type ProductCardProductProps = {
   image: string;
-  onClickHeart?: () => void;
 };
 
-export default function ProductCardProduct({
-  image,
-  onClickHeart,
-}: ProductCardProductProps) {
+export default function ProductCardProduct({ image }: ProductCardProductProps) {
+  function onClickHeart() {}
+
   return (
     <section className="flex flex-col gap-4 justify-center items-center w-full max-w-100">
       <div

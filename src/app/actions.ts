@@ -23,13 +23,12 @@ export async function filterProducts({ column, value }: filterProductsProps) {
 
     return {
       products,
-      productsError,
     };
   } catch (e) {
     const errorMessage = (e as Error).message;
 
     console.error(errorMessage);
-    return { resultError: { message: errorMessage } };
+    return { productsError: { message: errorMessage } };
   }
 }
 
@@ -54,12 +53,11 @@ export async function sortProducts({ column, ascending }: sortProductsProps) {
 
     return {
       products,
-      productsError,
     };
   } catch (e) {
     const errorMessage = (e as Error).message;
 
     console.error(errorMessage);
-    return { resultError: { message: errorMessage } };
+    return { productsError: { message: errorMessage } };
   }
 }

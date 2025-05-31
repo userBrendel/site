@@ -6,7 +6,6 @@ type ProductCardBagProps = {
   price: number;
   quantity: number;
   size: number;
-  onClickTrash?: () => void;
 };
 
 export default function ProductCardBag({
@@ -15,8 +14,9 @@ export default function ProductCardBag({
   price,
   quantity,
   size,
-  onClickTrash,
 }: ProductCardBagProps) {
+  function onClickTrash() {}
+
   return (
     <section className="flex gap-4 items-start w-full">
       <div className="space-y-2">
