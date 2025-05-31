@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Signin() {
   return (
-    <main className="py-32 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <main className="w-full md:h-screen py-40 px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-6 ">
       <section>
         <div className="border p-8 flex flex-col gap-4">
           <h1 className="text-3xl">Greetings New Customer!</h1>
@@ -12,7 +12,7 @@ export default function Signin() {
             Create an account now and stay updated with the latest LTBF
             releases—be the first to experience what’s next!
           </p>
-          <FilledButton size="lg" href="#">
+          <FilledButton size="lg" href="/CreateAccount">
             Create Your Account
           </FilledButton>
         </div>
