@@ -96,7 +96,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <main className="w-full min-h-screen flex items-center justify-center px-4 py-20">
+    <main className="w-full min-h-screen flex items-center justify-center px-4 py-25">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-2xl border p-8 shadow-md flex flex-col gap-6"
